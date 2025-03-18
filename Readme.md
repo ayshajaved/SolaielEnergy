@@ -1,6 +1,6 @@
 # Solaiel Energy
 
-"**Bright Ideas, Local Ties, Solar Rise.**"
+"**Bright Ideas, Local Ties, Solar Rise**"
 
 Welcome to the repository for **Solaiel Energy**, a project developed as part of the GDSC Solution Challenge. Solaiel Energy is both a mobile app and a website designed to empower users with innovative solar energy solutions.
 
