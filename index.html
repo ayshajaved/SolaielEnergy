@@ -5,203 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solaiel Energy - Solar Solutions</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Google Fonts link for Playfair Display -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
-    <main class="container">
-        <!-- Left Section - White Background -->
-        <div class="left-section">
-            <div class="logo">Solaiel</div>
-            
-            <div class="content">
-                <h1 class="tagline">
-                    Let's Browse<br>
-                    Bright house<br>
-                    Local Ties<br>
-                    Solar Rise
-                </h1>
-                
-                <div class="description">
-                    <p>
-                        Harnessing the power of the sun to create sustainable energy solutions for homes and businesses.
-                        Our expert team ensures efficient, eco-friendly installations tailored to your needs.
-                    </p>
-                </div>
-            </div>
+    <svg viewBox="0 0 1280 720">
+        <!-- Logo group -->
+        <g class="logo-group">
+            <image href="logo.png" x="10" y="10" width="80" height="80" onerror="this.style.display='none'" />
+            <text x="650" y="55" class="solaiel-text">Solaiel</text>
+        </g>
 
-            <div class="buttons">
-                <button class="btn" id="plannerBtn">Solar System Planner</button>
-                <button class="btn" id="engineersBtn">Engineers Near You</button>
-                <button class="btn" id="chatBtn">Chat with AI</button>
-            </div>
-        </div>
+        <mask id="maskLeft">
+            <rect x="0" width="640" height="100%" fill="#fff"/>
+        </mask>
+        <mask id="maskRight">
+            <rect x="640" width="640" height="100%" fill="#fff"/>
+        </mask>
+        <g font-size="100">
+            <g mask="url(#maskLeft)" fill="#fff" class="left">
+                <text y="120">Let's Browse</text>
+                <text y="250">Bright House</text>
+                <text y="380">Local Ties</text>
+                <text y="510">Solar Rise</text>
+            </g>
+            <g mask="url(#maskRight)" fill="#aaa" class="right">
+                <text y="120">Let's Browse</text>
+                <text y="250">Bright House</text>
+                <text y="380">Local Ties</text>
+                <text y="510">Solar Rise</text>
+            </g>
+        </g>
+    </svg>
 
-        <!-- Right Container for Pink Section -->
-        <div class="right-container">
-            <img src="logo.png" alt="Solaiel Logo" class="right-logo">
-            <div class="right-section">
-                <button class="btn contact-btn" id="contactBtn">Contact</button>
-                <div id="canvas-container"></div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Modal Container -->
-    <div class="modal-container" id="modalContainer">
-        <!-- Planner Modal -->
-        <div class="modal" id="plannerModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Solar System Planner</h2>
-                    <p>Plan your solar system installation by providing some basic information</p>
-                </div>
-                
-                <div class="modal-body">
-                    <form id="plannerForm">
-                        <div class="form-group">
-                            <label for="location">Your Location</label>
-                            <input type="text" id="location" placeholder="City, State or Zip Code" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="roofSize">Approximate Roof Size (m²): <span id="roofSizeValue">50</span></label>
-                            <input type="range" id="roofSize" min="10" max="200" step="5" value="50">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="budget">Budget ($)</label>
-                            <input type="number" id="budget" placeholder="Your budget" value="10000" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="energyUsage">Monthly Energy Usage (kWh): <span id="energyUsageValue">500</span></label>
-                            <input type="range" id="energyUsage" min="100" max="2000" step="50" value="500">
-                        </div>
-                        
-                        <button type="submit" class="btn btn-full">Calculate Recommendation</button>
-                    </form>
-                    
-                    <div id="recommendation" class="recommendation hidden"></div>
-                </div>
-                
-                <div class="modal-footer">
-                    <button class="btn btn-outline close-modal">Close</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Engineers Modal -->
-        <div class="modal" id="engineersModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Find Solar Engineers Near You</h2>
-                    <p>Enter your zip code to find qualified solar engineers in your area</p>
-                </div>
-                
-                <div class="modal-body">
-                    <form id="engineersForm" class="search-form">
-                        <input type="text" id="zipCode" placeholder="Enter Zip Code" required>
-                        <button type="submit" class="btn" id="searchBtn">Search</button>
-                    </form>
-                    
-                    <div id="engineersResults" class="engineers-results">
-                        <div class="text-center hidden" id="searchingEngineers">Searching for engineers...</div>
-                        <div id="engineersList" class="engineers-list"></div>
-                    </div>
-                </div>
-                
-                <div class="modal-footer">
-                    <button class="btn btn-outline close-modal">Close</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Chat Modal -->
-        <div class="modal" id="chatModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Chat with Solar AI</h2>
-                    <p>Ask questions about solar energy, installation, costs, and more</p>
-                </div>
-                
-                <div class="modal-body">
-                    <div id="chatMessages" class="chat-messages">
-                        <div class="message ai">
-                            <div class="message-content">
-                                Hello! I'm your solar energy assistant. How can I help you today?
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="modal-footer chat-footer">
-                    <form id="chatForm" class="chat-form">
-                        <input type="text" id="chatInput" placeholder="Type your question...">
-                        <button type="submit" class="btn">Send</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Modal -->
-        <div class="modal" id="contactModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Contact Us</h2>
-                    <p>Fill out the form below and our team will get back to you shortly</p>
-                </div>
-                
-                <div class="modal-body">
-                    <div id="contactSuccess" class="contact-success hidden">
-                        <div class="success-icon">✓</div>
-                        <h3>Thank You!</h3>
-                        <p>Your message has been sent successfully. We'll contact you soon.</p>
-                    </div>
-                    
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="Your phone number" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="propertyType">Property Type</label>
-                            <select id="propertyType" required>
-                                <option value="residential">Residential</option>
-                                <option value="commercial">Commercial</option>
-                                <option value="industrial">Industrial</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Tell us about your project or questions" rows="4" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-full" id="submitContactBtn">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="modal-footer">
-                    <button class="btn btn-outline close-modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Include GSAP library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
