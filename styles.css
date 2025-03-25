@@ -355,8 +355,8 @@ svg {
 }
 /* Cursor styles */
 .cursor {
-    width: 1500px;  /* Increased from 150px */
-    height: 1500px; /* Increased from 150px */
+    width: 500px;  /* Increased from 150px */
+    height: 500px; /* Increased from 150px */
     background: radial-gradient(circle, rgba(255, 200, 0, 0.3) 0%, rgba(255, 180, 0, 0.1) 50%, transparent 70%);
     border-radius: 50%;
     position: fixed;
