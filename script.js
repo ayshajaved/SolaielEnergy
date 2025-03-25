@@ -21,21 +21,21 @@ const tl = gsap.timeline({
 })
 .play(0.5);
 
+// Updated synchronized text animation
 const tl2 = gsap.timeline();
+const allTexts = gsap.utils.toArray('.left text, .right text');
 
-document.querySelectorAll('text').forEach((t, i) => {
-    tl2.add(
-        gsap.fromTo(t, {
-            xPercent: -100,
-            x: 700
-        }, {
-            duration: 1,
-            xPercent: 0,
-            x: 575,
-            ease: 'sine.inOut'
-        }),
-        i % 4 * 0.2
-    );
+gsap.set(allTexts, {
+    xPercent: -100,
+    x: 700
+});
+
+tl2.to(allTexts, {
+    duration: 1,
+    xPercent: 0,
+    x: 575,
+    ease: 'sine.inOut',
+    stagger: 0 // This ensures all texts move together
 });
 
 window.onpointermove = (e) => {
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 - Remove the click event listeners for panels
 */
 
-// Add cursor effect
+// Enhanced cursor effect
 const cursor = document.createElement('div');
 cursor.className = 'cursor';
 document.body.appendChild(cursor);
@@ -94,7 +94,24 @@ window.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
     
-    // Only show cursor on home section
+    // Check if mouse is over home section or nav buttons
     const isOnHome = e.target.closest('#home');
-    cursor.style.opacity = isOnHome ? '1' : '0';
+    const isOnButton = e.target.closest('.nav-btn');
+    
+    if (isOnHome || isOnButton) {
+        cursor.style.opacity = '1';
+    } else {
+        cursor.style.opacity = '0';
+    }
+});
+
+// Add hollow cursor effect for navigation buttons
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+        cursor.classList.add('hollow');
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hollow');
+    });
 });

@@ -353,21 +353,183 @@ svg {
     font-size: 2rem;
     font-weight: bold;
 }
-/* Cursor styles */
+/* Side Navigation Styles */
+.side-nav {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-btn:hover {
+    color: #ff568e;
+}
+
+/* Update cursor styles */
 .cursor {
-    width: 500px;  /* Increased from 150px */
-    height: 500px; /* Increased from 150px */
+    width: 500px;
+    height: 500px;
     background: radial-gradient(circle, rgba(255, 200, 0, 0.3) 0%, rgba(255, 180, 0, 0.1) 50%, transparent 70%);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
+    /* Removed transition for cursor position */
 }
 
-/* Make sure home section has position relative */
-#home {
+/* Hollow cursor - keep transition only for state change */
+.cursor.hollow {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #C4A43C;
+    box-shadow: 0 0 10px rgba(196, 164, 60, 0.3);
+    transition: width 0.1s linear, height 0.1s linear, background 0.1s linear, border 0.1s linear;
+}
+
+.card p:hover {
+    flex: 4;
+}
+
+.card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ff568e;
+    letter-spacing: .1em;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card p:hover span {
+    transform: rotate(0);
+}
+
+#contact {
+    background: linear-gradient(45deg, #3a3a3a, #4a4a4a);
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Card Component Styles */
+/* Update About section styles */
+#about {
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Card styles with improved visibility */
+.card {
+    width: 210px;
+    height: 254px;
+    border-radius: 4px;
+    background: #212121;
+    display: flex;
+    gap: 5px;
+    padding: .4em;
+    margin: 3rem auto;
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+    height: 100%;
+    flex: 1;
     overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #212121;
+    border: 1px solid #ff5a91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.card p:hover {
+    flex: 4;
+}
+
+.card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #ff568e;
+    letter-spacing: .1em;
+    font-size: 0.9rem;
+}
+
+.card p:hover span {
+    transform: rotate(0);
+}
+
+/* Ensure canvas doesn't overlap */
+#snowCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
