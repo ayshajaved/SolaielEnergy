@@ -7,37 +7,67 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <svg viewBox="0 0 1280 720">
-        <!-- Logo group -->
-        <g class="logo-group">
-            <image href="logo.png" x="10" y="10" width="80" height="80" onerror="this.style.display='none'" />
-            <text x="650" y="55" class="solaiel-text">Solaiel</text>
-        </g>
-
-        <mask id="maskLeft">
-            <rect x="0" width="640" height="100%" fill="#fff"/>
-        </mask>
-        <mask id="maskRight">
-            <rect x="640" width="640" height="100%" fill="#fff"/>
-        </mask>
-        <g font-size="100">
-            <g mask="url(#maskLeft)" fill="#fff" class="left">
-                <text y="120">Let's Browse</text>
-                <text y="250">Bright House</text>
-                <text y="380">Local Ties</text>
-                <text y="510">Solar Rise</text>
+    <!-- Original SVG Section -->
+    <section class="page-section" id="home">
+        <svg viewBox="0 0 1280 720">
+            <!-- Logo group -->
+            <g class="logo-group">
+                <image href="logo.png" x="10" y="10" width="80" height="80" onerror="this.style.display='none'" />
+                <text x="650" y="55" class="solaiel-text">Solaiel</text>
             </g>
-            <g mask="url(#maskRight)" fill="#aaa" class="right">
-                <text y="120">Let's Browse</text>
-                <text y="250">Bright House</text>
-                <text y="380">Local Ties</text>
-                <text y="510">Solar Rise</text>
-            </g>
-        </g>
-    </svg>
 
-    <!-- Include GSAP library -->
+            <mask id="maskLeft">
+                <rect x="0" width="640" height="100%" fill="#fff"/>
+            </mask>
+            <mask id="maskRight">
+                <rect x="640" width="640" height="100%" fill="#fff"/>
+            </mask>
+            <g font-size="100">
+                <g mask="url(#maskLeft)" fill="#fff" class="left">
+                    <text y="120">Let's Browse</text>
+                    <text y="250">Bright House</text>
+                    <text y="380">Local Ties</text>
+                    <text y="510">Solar Rise</text>
+                </g>
+                <g mask="url(#maskRight)" fill="#aaa" class="right">
+                    <text y="120">Let's Browse</text>
+                    <text y="250">Bright House</text>
+                    <text y="380">Local Ties</text>
+                    <text y="510">Solar Rise</text>
+                </g>
+            </g>
+        </svg>
+    </section>
+
+    <!-- About Section -->
+    <section class="page-section" id="about">
+        <h2 class="section-title">About Solaiel</h2>
+        <div class="section-content">
+            <p>Empowering homes and businesses with sustainable solar solutions. We believe in harnessing the sun's energy for a brighter tomorrow.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="page-section" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-content">
+            <p>From solar panel installation to energy optimization, we provide comprehensive solar solutions tailored to your needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="page-section" id="contact">
+        <h2 class="section-title">Connect With Us</h2>
+        <div class="section-content">
+            <p>Ready to start your solar journey? Get in touch with our experts today.</p>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
