@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solaiel Energy - Solar Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="sun.css">
 </head>
 <body>
+    <!-- Loader -->
+    <div class="loading" id="preloader">
+        <div class="loader">Solaiel</div>
+    </div>
+    
     <!-- Add navigation buttons -->
     <nav class="side-nav">
         <a href="#home" class="nav-btn">Home</a>
@@ -17,6 +23,7 @@
 
     <!-- Original SVG Section -->
     <section class="page-section" id="home">
+        <!-- From Uiverse.io by reyrojo2 --> 
         <svg viewBox="0 0 1280 720">
             <!-- Logo group -->
             <g class="logo-group">
@@ -46,12 +53,41 @@
             </g>
         </svg>
     </section>
-
+    
     <!-- About Section -->
     <section class="page-section" id="about">
-        <h2 class="section-title">About Solaiel</h2>
         <div class="section-content">
-            <p>Empowering homes and businesses with sustainable solar solutions. We believe in harnessing the sun's energy for a brighter tomorrow.</p>
+            <div class="sun-container">
+                <div class="section-banner-sun">
+                    <div id="star-1" class="curved-corner-star">
+                        <div id="curved-corner-topleft"></div>
+                        <div id="curved-corner-topright"></div>
+                    </div>
+                    <div id="star-2" class="curved-corner-star">
+                        <div id="curved-corner-bottomleft"></div>
+                        <div id="curved-corner-bottomright"></div>
+                    </div>
+                    <div id="star-3" class="curved-corner-star">
+                        <div id="curved-corner-topleft"></div>
+                        <div id="curved-corner-topright"></div>
+                    </div>
+                    <div id="star-4" class="curved-corner-star">
+                        <div id="curved-corner-bottomleft"></div>
+                        <div id="curved-corner-bottomright"></div>
+                    </div>
+                </div>
+                <h2 class="section-title">About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="card">
+                    <p><span>Sustainable Solutions</span></p>
+                    <p><span>Expert Team</span></p>
+                    <p><span>Innovation</span></p>
+                </div>
+                <p class="about-text">
+                    At Solaiel Energy, we're committed to revolutionizing energy consumption through innovative solar solutions. Our expert team brings years of experience in renewable energy technology.
+                </p>
+            </div>
         </div>
     </section>
 

@@ -13,16 +13,150 @@
 /* Existing Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
+/* Base styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 900;
     font-style: normal;
-    background: #000;
+    background: #000000;
     overflow-x: hidden;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
+
+/* Update all section backgrounds */
+.page-section {
+    background: #000000;
+}
+
+#home {
+    background: #000000;
+}
+
+#about {
+    background: #000000;
+}
+
+#services {
+    background: #000000;
+}
+
+#contact {
+    background: #000000;
+}
+
+/* Update body background to ensure no gaps */
+body {
+    background: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+  .curved-corner-star {
+    display: flex;
+    position: relative;
+  }
+  #curved-corner-bottomleft,
+  #curved-corner-bottomright,
+  #curved-corner-topleft,
+  #curved-corner-topright {
+    width: 4px;
+    height: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  #curved-corner-bottomleft:before,
+  #curved-corner-bottomright:before,
+  #curved-corner-topleft:before,
+  #curved-corner-topright:before {
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+  }
+  #curved-corner-bottomleft:before {
+    bottom: 0;
+    left: 0;
+    box-shadow: -5px 5px 0 0 white;
+  }
+  #curved-corner-bottomright:before {
+    bottom: 0;
+    right: 0;
+    box-shadow: 5px 5px 0 0 white;
+  }
+  #curved-corner-topleft:before {
+    top: 0;
+    left: 0;
+    box-shadow: -5px -5px 0 0 white;
+  }
+  #curved-corner-topright:before {
+    top: 0;
+    right: 0;
+    box-shadow: 5px -5px 0 0 white;
+  }
+  
+  @keyframes twinkling {
+    0%,
+    100% {
+      opacity: 0.1;
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  }
+  #star-1 {
+    position: absolute;
+    left: -20px;
+    animation: twinkling 3s infinite;
+  }
+  #star-2 {
+    position: absolute;
+    left: -40px;
+    top: 30px;
+    animation: twinkling 2s infinite;
+  }
+  #star-3 {
+    position: absolute;
+    left: 350px;
+    top: 90px;
+    animation: twinkling 4s infinite;
+  }
+  #star-4 {
+    position: absolute;
+    left: 200px;
+    top: 290px;
+    animation: twinkling 3s infinite;
+  }
+  #star-5 {
+    position: absolute;
+    left: 50px;
+    top: 270px;
+    animation: twinkling 1.5s infinite;
+  }
+  #star-6 {
+    position: absolute;
+    left: 250px;
+    top: -50px;
+    animation: twinkling 4s infinite;
+  }
+  #star-7 {
+    position: absolute;
+    left: 290px;
+    top: 60px;
+    animation: twinkling 2s infinite;
+  }
+  
 
 /* Canvas Styles */
 canvas {
@@ -39,6 +173,7 @@ svg {
     fill: #d8d3d3;
     font-size: 25px;
 }
+
 
 .logo-group {
     transform: translate(0, 0);
@@ -129,12 +264,12 @@ svg {
 
 /* Section-specific backgrounds */
 #about {
-    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    background: #000000;
 }
 
 /* Update Services section specific styles */
 #services {
-    background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+    background: #000000;
     position: relative;
     overflow: hidden;
 }
@@ -198,7 +333,7 @@ svg {
 }
 
 #contact {
-    background: linear-gradient(45deg, #3a3a3a, #4a4a4a);
+    background: #000000;
 }
 
 /* Animation classes */
@@ -255,7 +390,7 @@ svg {
     width: 210px;
     height: 254px;
     border-radius: 4px;
-    background: #212121;
+    background: #000000;
     display: flex;
     gap: 5px;
     padding: .4em;
@@ -377,20 +512,22 @@ svg {
     color: #ff568e;
 }
 
+/* Remove the cursor style block entirely */
 /* Update cursor styles */
 .cursor {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 200, 0, 0.3) 0%, rgba(255, 180, 0, 0.1) 50%, transparent 70%);
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #C4A43C;
+    box-shadow: 0 0 10px rgba(196, 164, 60, 0.3);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    /* Removed transition for cursor position */
 }
 
-/* Hollow cursor - keep transition only for state change */
+/* Remove the hollow cursor class as it's no longer needed */
 .cursor.hollow {
     width: 40px;
     height: 40px;
@@ -422,7 +559,7 @@ svg {
 }
 
 #contact {
-    background: linear-gradient(45deg, #3a3a3a, #4a4a4a);
+    background: #000000;
 }
 
 /* Animation classes */
@@ -532,4 +669,69 @@ svg {
     width: 100%;
     height: 100%;
     z-index: 1;
+}
+
+.loading {
+    background-color: #000000;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    transition: opacity 0.5s;
+}
+
+.loader {
+    font-size: 4rem;
+    font-family: sans-serif;
+    font-variant: small-caps;
+    font-weight: 900;
+    background: conic-gradient(
+        #dff2ae 0 25%,
+        #ff904f 25% 50%,
+        #feefe7 50% 75%,
+        #ffde2b 75%
+    );
+    background-size: 200% 200%;
+    animation: animateBackground 4.5s ease-in-out infinite;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    letter-spacing: 0.1em;
+}
+
+@keyframes animateBackground {
+    25% {
+        background-position: 0 100%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.loading .a {
+    animation-delay: .3s;
+}
+
+.loading .u {
+    animation-delay: .6s;
+}
+
+@keyframes load912355 {
+    0% {
+        transform: translateY(50px) scale(1);
+    }
+    100% {
+        transform: translateY(10px) scale(1.8) rotate(360deg);
+    }
 }
