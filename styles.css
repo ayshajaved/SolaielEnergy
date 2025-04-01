@@ -674,9 +674,9 @@ svg {
 .tagline {
     font-family: 'Josefin Sans', sans-serif;
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 2rem;
     position: absolute;
-    right: -20px;
+    right: -100px;
     top: 10%;
     text-align: left;
     max-width: 500px;
