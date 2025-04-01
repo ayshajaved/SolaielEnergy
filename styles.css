@@ -503,7 +503,7 @@ svg {
 .nav-btn {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     padding: 10px;
     transition: color 0.3s ease;
 }
@@ -668,6 +668,30 @@ svg {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
+}
+
+.tagline {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #ffffff;
+    font-size: 1.8rem;
+    position: absolute;
+    right: -20px;
+    top: 10%;
+    text-align: left;
+    max-width: 500px;
+    line-height: 1.6;
+    z-index: 2;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.home-sun {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 1;
 }
 
