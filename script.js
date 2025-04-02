@@ -202,3 +202,49 @@ window.addEventListener('load', () => {
     // Start the loader sequence
     handleLoader();
 });
+
+// Add this to your existing script.js file to fix scrolling issues
+
+// Function to animate the tagline when the page loads
+function animateTagline() {
+    // Show the tagline with animation after a short delay
+    setTimeout(() => {
+        const tagline = document.querySelector('.tagline');
+        if (tagline) {
+            tagline.classList.add('tagline-visible');
+        }
+    }, 2500); // Delay after loader disappears
+}
+
+// Add this to your existing window.addEventListener('load', ...) function
+window.addEventListener('load', function() {
+    // Your existing code...
+    
+    // Animate tagline
+    animateTagline();
+});
+
+// Add this to your existing script.js file
+
+// Fix scrolling issues
+document.addEventListener('DOMContentLoaded', function() {
+    // Ensure body has proper height
+    document.body.style.minHeight = '100vh';
+    document.body.style.position = 'relative';
+    
+    // Fix any potential issues with fixed elements
+    const fixedElements = document.querySelectorAll('.loading');
+    fixedElements.forEach(el => {
+        el.addEventListener('transitionend', function(e) {
+            if (e.propertyName === 'opacity' && this.style.opacity === '0') {
+                this.style.pointerEvents = 'none';
+            }
+        });
+    });
+    
+    // Ensure all sections are properly sized
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(section => {
+        section.style.overflow = 'visible';
+    });
+});
