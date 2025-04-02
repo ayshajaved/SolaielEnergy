@@ -427,7 +427,7 @@ svg {
     margin-left: -90px; /* Increased negative margin to bring cards closer */
 }
 
-/* Remove all other .content style definitions and keep only one consolidated version */
+/* Update the content text alignment to justified */
 .content {
     position: absolute;
     padding: 25px;
@@ -437,9 +437,9 @@ svg {
     font-family: 'Josefin Sans', sans-serif;
     line-height: 1.4;
     width: 80%;
-    max-height: 180px; /* Reduced height to make room for button */
+    max-height: 180px;
     overflow: hidden;
-    text-align: left;
+    text-align: justify; /* Changed from left to justify */
     left: 10%;
 }
 
@@ -502,6 +502,7 @@ svg {
 }
 
 /* Adjust content positioning for larger cards */
+/* Center the heading properly */
 .title-1 {
     color: #ffffff;
     font-size: 32px;
@@ -511,7 +512,8 @@ svg {
     top: 25px;
     font-family: 'Montserrat', sans-serif;
     width: 100%;
-    text-align: center; /* Center the heading */
+    text-align: center; /* Changed back to center from justify */
+    padding: 0 10px; /* Keeping some padding for better appearance */
 }
 
 .content {
