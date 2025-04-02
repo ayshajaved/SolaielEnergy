@@ -1,4 +1,4 @@
-/* Card Component Styles */
+Card Component Styles
 /* Updated About section styles to reduce empty space */
 #about {
     position: relative;
@@ -219,12 +219,23 @@
 
 .btn:hover {
     transition: 0.4s ease-out;
-    background-color: #c97b14; /* Changed to #c97b14 */
-    color: #ffffff; /* White text for better contrast */
+    background-color: #c97b14; /* Standardized to dark orange */
+    color: #ffffff;
     box-shadow: 0px 0px 20px rgba(201, 123, 20, 0.5),
       0px 5px 5px -1px rgba(201, 123, 20, 0.25),
       inset 4px 4px 8px rgba(231, 153, 50, 0.5),
       inset -4px -4px 8px rgba(171, 93, 0, 0.35);
+}
+
+.filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    background: #c97b14; /* Standardized to dark orange */
+    background: linear-gradient(90deg, rgba(201, 123, 20, 0.7), #c97b14 100%);
+    transition: 0.6s ease-out;
 }
 
 .bar {
@@ -246,7 +257,7 @@
     z-index: 3;
     width: 0px;
     height: 100%;
-    background: #c97b14; /* Changed to #c97b14 */
+    background: #c97b14; /* Standardized to dark orange */
     background: linear-gradient(90deg, rgba(201, 123, 20, 0.7), #c97b14 100%);
     transition: 0.6s ease-out;
 }

@@ -216,12 +216,89 @@ function animateTagline() {
     }, 2500); // Delay after loader disappears
 }
 
+// Handle navigation button active states
+function setupNavigation() {
+    const sections = document.querySelectorAll('.page-section');
+    const navBtns = document.querySelectorAll('.nav-btn');
+    
+    // Set initial active state based on current visible section
+    function setInitialActiveButton() {
+        // Default to home
+        let activeSection = 'home';
+        
+        // Check if another section is more visible
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight/2 && rect.bottom >= window.innerHeight/2) {
+                activeSection = section.getAttribute('id');
+            }
+        });
+        
+        // Set the active button
+        navBtns.forEach(btn => {
+            if (btn.getAttribute('data-section') === activeSection) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    
+    // Set initial state when page loads
+    setInitialActiveButton();
+    
+    // Update active state on click
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            navBtns.forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Scroll to corresponding section
+            const targetSection = document.getElementById(this.getAttribute('data-section'));
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', function() {
+        let currentSection = '';
+        let maxVisibility = 0;
+        
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const sectionHeight = section.clientHeight;
+            const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+            const visibilityRatio = visibleHeight / sectionHeight;
+            
+            if (visibilityRatio > maxVisibility && visibilityRatio > 0.3) {
+                maxVisibility = visibilityRatio;
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        if (currentSection) {
+            navBtns.forEach(btn => {
+                if (btn.getAttribute('data-section') === currentSection) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+    });
+}
+
 // Add this to your existing window.addEventListener('load', ...) function
 window.addEventListener('load', function() {
     // Your existing code...
     
-    // Animate tagline
-    animateTagline();
+    // Setup navigation
+    setupNavigation();
 });
 
 // Add this to your existing script.js file

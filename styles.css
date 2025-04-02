@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap');
 @import url('card.css');
 @import url('style.css');
 /* Reset and Base Styles */
@@ -217,6 +218,7 @@ svg {
 .solaiel-text {
     fill: #d8d3d3;
     font-size: 25px;
+    
 }
 
 
@@ -629,246 +631,56 @@ svg {
     cursor: pointer;
 }
 
-.btn:hover {
-    transition: 0.4s ease-out;
-    background-color: #c97b14; /* Changed to #c97b14 */
-    color: #ffffff; /* White text for better contrast */
+/* Navigation button styles with standardized color - repositioned to left side */
+.nav-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    gap: 30px; /* Increased spacing between buttons */
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 40px; /* Moved forward (increased from 20px) */
+    transform: translateY(-50%); /* Center alignment adjustment */
+    width: auto; /* Auto width instead of 100% */
+    z-index: 1000;
+    padding: 10px;
+}
+
+.nav-btn {
+    padding: 12px 24px; /* Slightly larger buttons */
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    background-color: #000000; /* Default black background */
+    color: #ffffff;
+    border: 2px solid transparent;
+}
+
+.nav-btn:hover {
+    background-color: #c97b14; /* Standardized to dark orange */
+    color: #ffffff;
     box-shadow: 0px 0px 20px rgba(201, 123, 20, 0.5),
       0px 5px 5px -1px rgba(201, 123, 20, 0.25),
       inset 4px 4px 8px rgba(231, 153, 50, 0.5),
       inset -4px -4px 8px rgba(171, 93, 0, 0.35);
+    transform: translateX(5px); /* Move right on hover instead of down */
 }
 
-.bar {
-    position: relative;
-    top: 250px;
-    height: 5px;
-    width: 100%;
+.nav-btn.active {
+    background-color: #c97b14; /* Active button is orange/gold */
+    color: #ffffff;
+    border: 2px solid #c97b14; /* Standardized to dark orange */
+    box-shadow: 0px 0px 10px rgba(201, 123, 20, 0.3);
 }
 
-.emptybar {
-    background-color: #0a0a0a;
-    width: 100%;
-    height: 100%;
-}
 
-.filledbar {
-    position: absolute;
-    top: 0px;
-    z-index: 3;
-    width: 0px;
-    height: 100%;
-    background: #c97b14; /* Changed to #c97b14 */
-    background: linear-gradient(90deg, rgba(201, 123, 20, 0.7), #c97b14 100%);
-    transition: 0.6s ease-out;
-}
 
-.card:hover .filledbar {
-    width: 100%;
-    transition: 0.4s ease-out;
-}
-
-.content {
-    position: absolute;
-    padding: 20px;
-    top: 60px;
-    color: #d8d3d3;
-    font-size: 0.7rem;
-    font-family: 'Josefin Sans', sans-serif;
-    line-height: 1.5;
-}
-
-.stroke {
-    stroke: white;
-    stroke-dasharray: 360;
-    stroke-dashoffset: 360;
-    transition: 0.6s ease-out;
-}
-
-.card:hover .stroke {
-    stroke-dashoffset: 100;
-    transition: 0.6s ease-out;
-}
-
-@media (max-width: 768px) {
-    .steps-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .card {
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
-    
-    .card:not(:first-child) {
-        margin-left: 0;
-    }
-    
-    .steps-title {
-        font-size: 2.5rem;
-    }
-}
-
-.card p:hover {
-    flex: 4;
-}
-
-.card p span {
-    min-width: 14em;
-    padding: .5em;
-    text-align: center;
-    transform: rotate(-90deg);
-    transition: all .5s;
-    text-transform: uppercase;
-    color: #ff568e;
-    letter-spacing: .1em;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.card p:hover span {
-    transform: rotate(0);
-}
-
-#contact {
-    background: #000000;
-}
-
-/* Animation classes */
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Add creative animations to the website */
-
-/* Fix animation issues */
-
-/* Loader styles */
-.loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-
-.loader {
-    font-size: 3rem;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-/* Ensure the home section is initially hidden */
-#home {
-    opacity: 0;
-    transform: translateY(0);
-    transition: opacity 1s ease;
-}
-
-#home.visible {
-    opacity: 1;
-}
-
-#contact {
-    background: #000000;
-}
-
-/* Animation classes */
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 1s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Tagline animation for first page */
-.tagline {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.tagline-visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: glow 3s ease-in-out infinite alternate, textFloat 6s ease-in-out infinite;
-    animation-delay: 0.5s;
-}
-
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-    100% {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 90, 145, 0.6);
-    }
-}
-
-@keyframes textFloat {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
 
 
