@@ -126,3 +126,79 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
         cursor.classList.remove('hollow');
     });
 });
+
+// Add this to your existing script.js file
+
+// Function to handle the loader and initial animations
+function handleLoader() {
+    const preloader = document.getElementById('preloader');
+    const homeSection = document.querySelector('#home');
+    
+    // Make sure loader is visible
+    if (preloader) {
+        preloader.style.display = 'flex';
+        preloader.style.opacity = '1';
+        
+        // After 2 seconds, hide the loader and show the home section
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            
+            // After transition completes, hide the loader completely
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                
+                // Show home section
+                homeSection.classList.add('visible');
+                
+                // Show the tagline with animation
+                const tagline = document.querySelector('.tagline');
+                if (tagline) {
+                    tagline.classList.add('tagline-visible');
+                }
+                
+                // Initialize scroll animations
+                handleScrollAnimations();
+            }, 500); // Wait for opacity transition to complete
+            
+        }, 2000); // Show loader for 2 seconds
+    }
+}
+
+// Function to handle scroll animations
+function handleScrollAnimations() {
+    const sections = document.querySelectorAll('.page-section:not(#home)');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Animate cards when their section becomes visible
+                if (entry.target.id === 'about') {
+                    const cards = entry.target.querySelectorAll('.card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('card-visible');
+                        }, index * 200);
+                    });
+                }
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
+
+// Initialize when the page is fully loaded
+window.addEventListener('load', () => {
+    // Add card index as a custom property for staggered animations
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.setProperty('--card-index', index + 1);
+    });
+    
+    // Start the loader sequence
+    handleLoader();
+});
