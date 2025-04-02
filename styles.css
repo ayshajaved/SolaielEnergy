@@ -453,16 +453,16 @@ svg {
     transform: translateX(70px);
 }
 
-/* Adjust card height to fit better */
+/* Increase card height and adjust content display */
 .card {
     display: flex;
     flex-direction: column;
-    height: 380px; /* Slightly reduced height */
+    height: 520px;
     width: 340px;
     background-color: #0a0a0a;
     border-radius: 10px;
     box-shadow: -1rem 0 3rem rgba(0, 0, 0, 0.6);
-    margin-left: -120px;
+    margin-left: -80px; /* Changed from -120px to -80px for more separation */
     transition: 0.4s ease-out;
     position: relative;
     left: 0px;
@@ -470,29 +470,30 @@ svg {
 }
 
 .card:not(:first-child) {
-    margin-left: -90px; /* Increased negative margin to bring cards closer */
+    margin-left: -30px; /* Changed from -50px to -30px for more separation */
 }
 
-/* Update the content text alignment to justified */
+/* Update content area to display all text with larger font size */
+/* Update content area with larger font size while preserving functionality */
 .content {
     position: absolute;
     padding: 25px;
     top: 90px;
     color: #d8d3d3;
-    font-size: 1.3rem !important;
+    font-size: 1.1rem !important; /* Keep the larger font size */
     font-family: 'Josefin Sans', sans-serif;
-    line-height: 1.4;
-    width: 80%;
-    max-height: 180px;
-    overflow: hidden;
-    text-align: justify; /* Changed from left to justify */
-    left: 10%;
+    line-height: 1.5;
+    width: 90%;
+    max-height: 320px;
+    overflow: visible;
+    text-align: justify;
+    left: 5%;
 }
 
-/* Consolidated button styles to avoid conflicts */
+/* Fix button positioning to ensure it's visible */
 .btn {
     position: absolute;
-    bottom: 20px !important; /* Force bottom positioning */
+    bottom: 30px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 160px;
@@ -500,98 +501,45 @@ svg {
     font-size: 1rem;
     border-radius: 8px;
     border: none;
-    background-color: #181818;
-    color: #fff;
-    transition: 0.4s ease-out;
-    cursor: pointer;
-    z-index: 10;
-    margin: 0 !important; /* Remove any margin that might affect positioning */
-    top: auto !important; /* Override any top positioning */
-}
-
-.bar {
-    position: absolute; /* Changed to absolute */
-    bottom: 0; /* Position at the very bottom */
-    height: 5px;
-    width: 100%;
-}
-
-.btn:hover {
-    transition: 0.4s ease-out;
-    background-color: #b39700; /* Darker gold */
-    color: #ffffff; /* Changed to white for better contrast with darker gold */
-    box-shadow: 0px 0px 20px rgba(179, 151, 0, 0.5),
-      0px 5px 5px -1px rgba(179, 151, 0, 0.25),
-      inset 4px 4px 8px rgba(204, 173, 0, 0.5),
-      inset -4px -4px 8px rgba(153, 130, 0, 0.35);
-}
-
-.filledbar {
-    position: absolute;
-    top: 0px;
-    z-index: 3;
-    width: 0px;
-    height: 100%;
-    background: #b39700; /* Darker gold */
-    background: linear-gradient(90deg, rgba(179, 151, 0, 0.7), #b39700 100%);
-    transition: 0.6s ease-out;
-}
-
-.card:hover {
-    transform: translateY(-20px);
-    transition: 0.4s ease-out;
-    text-shadow: 2px 2px 8px rgba(201, 123, 20, 0.5); /* Changed to #c97b14 glow */
-}
-
-.card:not(:first-child) {
-    margin-left: -50px; /* Adjusted for better spacing */
-}
-
-/* Adjust content positioning for larger cards */
-/* Center the heading properly */
-.title-1 {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 800;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    text-align: center; /* Changed back to center from justify */
-    padding: 0 10px; /* Keeping some padding for better appearance */
-}
-
-.content {
-    position: absolute;
-    padding: 30px; /* Increased padding */
-    top: 90px; /* Adjusted for larger card */
-    color: #d8d3d3;
-    font-size: 0.9rem; /* Increased from 0.8rem */
-    font-family: 'Josefin Sans', sans-serif;
-    line-height: 1.6;
-}
-
-.btn {
-    position: absolute;
-    top: 280px; /* Adjusted for larger card */
-    margin: 0 25px;
-    width: 160px; /* Wider button */
-    height: 40px; /* Taller button */
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
     background-color: #212121;
     color: #fff;
     transition: 0.4s ease-out;
     cursor: pointer;
+    z-index: 10;
+    margin: 0 !important;
+    top: auto !important;
+    display: block !important; /* Ensure button is displayed */
 }
 
+/* Fix the filled bar to ensure it's visible and working */
+.filledbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    width: 0;
+    height: 100%;
+    background: #c97b14;
+    background: linear-gradient(90deg, rgba(201, 123, 20, 0.7), #c97b14 100%);
+    transition: 0.6s ease-out;
+    display: block !important; /* Ensure filled bar is displayed */
+}
+
+/* Ensure hover effect works for filled bar */
+.card:hover .filledbar {
+    width: 100%;
+    transition: 0.4s ease-out;
+}
+
+/* Ensure bar is visible */
 .bar {
-    position: relative;
-    top: 350px; /* Adjusted for larger card */
+    position: absolute;
+    bottom: 0;
+    left: 0;
     height: 5px;
     width: 100%;
+    background-color: #181818;
+    display: block !important; /* Ensure bar is displayed */
 }
 
 .card:hover {
@@ -679,8 +627,3 @@ svg {
     border: 2px solid #c97b14; /* Standardized to dark orange */
     box-shadow: 0px 0px 10px rgba(201, 123, 20, 0.3);
 }
-
-
-
-
-
