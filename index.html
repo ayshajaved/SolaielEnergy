@@ -121,23 +121,29 @@
     </section>
 
     <!-- Services Section -->
-    <section class="page-section" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="section-content">
-            <div class="services-container">
-                <div class="spline-container">
-                    <iframe src='https://my.spline.design/droid-762c32eb5b5c19f77358ee03834d7b2d/' frameborder='0' width='100%' height='100%'></iframe>
+    <section class="page-section" id="services" style="height: 100vh; background: #000; overflow: hidden;">
+        <div style="display: flex; height: 100vh; width: 100%; position: relative;">
+            <div style="width: 70%; height: 100vh; position: relative; overflow: hidden;">
+                <iframe 
+                    src='https://my.spline.design/robotfollowcursorforlandingpage-b4bdd1380ecef510f3d8ccfcbf812371/' 
+                    frameborder='0' 
+                    style="width: 140%; height: 140%; position: absolute; top: -20%; left: -20%; transform: scale(1); border: none;"
+                ></iframe>
+            </div>
+            <div style="width: 30%; height: 100vh; background: rgba(0, 0, 0, 0.8); border-left: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
+                <!-- Chatbot content remains the same -->
+                <div style="padding: 20px; color: white; font-size: 1.2em; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                    Solaiel AI Assistant
                 </div>
-                <div class="chatbot-container">
-                    <div class="chatbot">
-                        <!-- Placeholder for chatbot interface -->
-                        <div class="chatbot-header">Solaiel AI Assistant</div>
-                        <div class="chatbot-body"></div>
-                        <div class="chatbot-input">
-                            <input type="text" placeholder="Ask me anything...">
-                            <button>Send</button>
-                        </div>
-                    </div>
+                <div style="flex: 1; padding: 20px; overflow-y: auto; color: white;">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div style="padding: 20px; background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.1);">
+                    <input type="text" placeholder="Ask me anything..." 
+                        style="width: 70%; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 5px;">
+                    <button style="width: 25%; padding: 12px; margin-left: 5px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Send
+                    </button>
                 </div>
             </div>
         </div>

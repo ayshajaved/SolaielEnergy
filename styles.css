@@ -638,7 +638,6 @@ svg {
     padding: 0;
     position: relative;
     overflow: hidden;
-    pointer-events: none;
 }
 
 .spline-container {
@@ -650,18 +649,17 @@ svg {
 
 .spline-container iframe {
     position: absolute;
-    width: 140%;
-    height: 140%;
-    top: -20%;
-    right: -20%;
-    transform: scale(0.8);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
 }
 
-/* Remove ALL hover and animation effects */
+/* Remove ALL animation effects */
 .services-container .spline-container,
 .services-container:hover .spline-container,
-.services-container.scroll-animate .spline-container,
-.services-container.scroll-animate:hover .spline-container {
+.services-container.scroll-animate .spline-container {
     transform: none !important;
     transition: none !important;
     animation: none !important;
