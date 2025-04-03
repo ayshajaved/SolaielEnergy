@@ -325,3 +325,12 @@ document.addEventListener('DOMContentLoaded', function() {
         section.style.overflow = 'visible';
     });
 });
+
+// Add smooth scrolling for the Learn More button
+document.querySelector('.card:nth-child(2) .btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#services').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
