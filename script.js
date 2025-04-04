@@ -334,3 +334,13 @@ document.querySelector('.card:nth-child(2) .btn').addEventListener('click', (e) 
         block: 'start'
     });
 });
+
+// Add this to your existing script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const roofSlider = document.getElementById('roofSize');
+    const valueDisplay = roofSlider.nextElementSibling;
+    
+    roofSlider.addEventListener('input', function() {
+        valueDisplay.textContent = this.value + ' sq ft';
+    });
+});

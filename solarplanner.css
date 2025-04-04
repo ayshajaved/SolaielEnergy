@@ -1,0 +1,321 @@
+/* Solar Planner Styles */
+/* Remove duplicate planner styles and consolidate them */
+/* Solar Planner Section - New Implementation */
+#solarplanner {
+    min-height: 100vh;
+    background: #000000;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#solarplanner .section-title {
+    color: #ffffff;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+#solarplanner .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #c97b14;
+}
+
+.planner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    width: 90%;
+    max-width: 1400px;
+}
+
+.input-section, .output-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(201, 123, 20, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.add-device {
+    background: transparent;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.add-device:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Update form text to match card content style */
+.form-group label {
+    color: #d8d3d3;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.form-control {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #d8d3d3;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.result-card p, .metric-label {
+    color: #d8d3d3;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+/* Update calculate button to match Learn More button style */
+.calculate-button {
+    position: relative;
+    background-color: #212121;
+    color: #fff;
+    transition: 0.4s ease-out;
+    z-index: 10;
+}
+
+.calculate-button:hover {
+    background-color: #c97b14;
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+    text-shadow: 2px 2px 8px rgba(255, 90, 145, 0.5);
+}
+
+/* Add hover effect similar to card */
+.calculate-button:hover ~ .calculate-button {
+    position: relative;
+    left: 50px;
+    transform: rotateX(-15deg) rotateY(10deg);
+    transition: 0.4s ease-out;
+}
+
+/* Update action buttons to match the same style */
+.action-button:not([disabled]):hover {
+    background-color: #c97b14;
+    transform: translateY(-5px);
+    transition: 0.4s ease-out;
+}
+
+.calculate-button {
+    background: #c97b14;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    margin-top: auto;
+    transition: all 0.3s ease;
+}
+
+.calculate-button:hover {
+    background: #d68b24;
+    transform: translateY(-2px);
+}
+
+.result-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.metric-label {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.metric-value {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.action-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(201, 123, 20, 0.2);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-button:not([disabled]):hover {
+    background: #c97b14;
+    border-color: #c97b14;
+}
+
+@media (max-width: 768px) {
+    .planner-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .device-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Update headings and maintain consistent fonts */
+#solarplanner h3, 
+#solarplanner h4 {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+}
+
+#solarplanner h3 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+#solarplanner h4 {
+    font-size: 1.5rem;
+}
+
+/* Update form elements for better visibility */
+.form-group label {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    font-family: "Josefin Sans", sans-serif;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Update result cards and metrics */
+.result-card h4 {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.result-card p {
+    color: #ffffff;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.metric-label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+
+/* Update buttons for consistency */
+.calculate-button, .action-button, .add-device {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Update section title to match website style */
+#solarplanner .section-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

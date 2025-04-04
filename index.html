@@ -88,7 +88,7 @@
                 <div class="content">
                     Let our AI analyze your energy needs and design the perfect solar system for your home or business, optimized for efficiency and cost.
                 </div>
-                <button class="btn">Learn more</button>
+                <button class="btn" onclick="window.location.href='#solarplanner'">Learn more</button>
                 <div class="bar">
                     <div class="emptybar"></div>
                     <div class="filledbar"></div>
@@ -122,6 +122,74 @@
     </section>
 
     <!-- Services Section -->
+    <!-- After the About section and before Services section -->
+    <!-- Solar Planner Section -->
+    <section id="solarplanner">
+        <h2 class="section-title">Solar Planner</h2>
+        <div class="planner-grid">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h3>System Requirements</h3>
+                <div class="form-group">
+                    <label>Roof Size (sqft)</label>
+                    <input type="range" id="roofSizeSlider" class="form-control" min="100" max="5000" value="1000" oninput="updateRoofSize(this.value)">
+                    <span class="value-display" id="roofSizeDisplay" style="color: white;">1000 sqft</span>
+                </div>
+                <div class="form-group">
+                    <label>Location</label>
+                    <input type="text" class="form-control" placeholder="Enter your city">
+                </div>
+                <div class="form-group">
+                    <label>Devices</label>
+                    <div class="device-list">
+                        <div class="device-item">
+                            <span>Computer</span>
+                            <input type="number" class="form-control" value="1" min="0">
+                        </div>
+                        <div class="device-item">
+                            <span>AC</span>
+                            <input type="number" class="form-control" value="1" min="0">
+                        </div>
+                        <div class="device-item">
+                            <span>Heater</span>
+                            <input type="number" class="form-control" value="1" min="0">
+                        </div>
+                    </div>
+                    <button class="add-device">+ Add Device</button>
+                </div>
+                <button class="calculate-button" style="background: #000; color: white;">Calculate Solar Plan</button>
+            </div>
+    
+            <!-- Output Section -->
+            <div class="output-section">
+                <h3>Your Solar Plan</h3>
+                <div class="result-cards">
+                    <div class="result-card">
+                        <h4>System Size</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-label">Panels</span>
+                                <span class="metric-value">12</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Power</span>
+                                <span class="metric-value">4.8kW</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Area</span>
+                                <span class="metric-value">240sqft</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-grid">
+                    <button class="action-button">Download Report</button>
+                    <button class="action-button">Contact Installer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
     <section class="page-section" id="services" style="height: 100vh; background: #000; overflow: hidden;">
         <div style="display: flex; height: 100vh; width: 100%; position: relative;">
             <div style="width: 70%; height: 100vh; position: relative; overflow: hidden;">
@@ -164,5 +232,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
-</body>
-</html>
+    <script>
+    function updateRoofSize(value) {
+        document.getElementById('roofSizeDisplay').textContent = value + ' sqft';
+    }
+    </script>
+    </body>
+    </html>
