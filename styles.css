@@ -677,3 +677,82 @@ svg {
 .services-container.scroll-animate:hover .spline-container {
     transform: scale(1.1);
 }
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    color: white;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.device-list {
+    margin-bottom: 15px;
+}
+
+.device-item {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.selected-devices {
+    margin: 10px 0;
+}
+
+.selected-device {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.selected-device button {
+    background: none;
+    color: rgba(255, 0, 0, 0.7);
+    cursor: pointer;
+    padding: 0 5px;
+}
+.device-select.form-control {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.device-select.form-control option {
+    background: #000000;
+    color: white;
+    padding: 8px;
+}
+
+.device-select.form-control:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+}

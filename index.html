@@ -135,29 +135,40 @@
                     <input type="range" id="roofSizeSlider" class="form-control" min="100" max="5000" value="1000" oninput="updateRoofSize(this.value)">
                     <span class="value-display" id="roofSizeDisplay" style="color: white;">1000 sqft</span>
                 </div>
-                <div class="form-group">
-                    <label>Location</label>
-                    <input type="text" class="form-control" placeholder="Enter your city">
-                </div>
+                <!-- Replace the devices form-group with this -->
                 <div class="form-group">
                     <label>Devices</label>
                     <div class="device-list">
                         <div class="device-item">
-                            <span>Computer</span>
-                            <input type="number" class="form-control" value="1" min="0">
-                        </div>
-                        <div class="device-item">
-                            <span>AC</span>
-                            <input type="number" class="form-control" value="1" min="0">
-                        </div>
-                        <div class="device-item">
-                            <span>Heater</span>
-                            <input type="number" class="form-control" value="1" min="0">
+                            <select class="device-select form-control">
+                                <option value="">Select Device</option>
+                                <option value="computer">Computer (100W)</option>
+                                <option value="ac">AC (1500W)</option>
+                                <option value="heater">Heater (1200W)</option>
+                                <option value="tv">TV (150W)</option>
+                                <option value="fridge">Refrigerator (400W)</option>
+                                <option value="washing">Washing Machine (500W)</option>
+                                <option value="microwave">Microwave (800W)</option>
+                                <option value="custom">Add Custom Device</option>
+                            </select>
+                            <div class="input-group">
+                                <label>Qty:</label>
+                                <input type="number" class="form-control quantity" min="1" value="1">
+                            </div>
+                            <div class="input-group">
+                                <label>Hrs/day:</label>
+                                <input type="number" class="form-control hours" min="1" max="24" value="8">
+                            </div>
                         </div>
                     </div>
+                    <div class="selected-devices"></div>
                     <button class="add-device">+ Add Device</button>
                 </div>
-                <button class="calculate-button" style="background: #000; color: white;">Calculate Solar Plan</button>
+                <div class="custom-device" style="display: none;">
+                    <input type="text" class="form-control" placeholder="Device name">
+                    <input type="number" class="form-control" placeholder="Power (Watts)">
+                </div>
+                <button class="add-device" style="margin-top: 10px;">+ Add Another Device</button>
             </div>
     
             <!-- Output Section -->
@@ -239,3 +250,40 @@
     </script>
     </body>
     </html>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const deviceList = document.querySelector('.device-list');
+        const addDeviceBtn = document.querySelector('.add-device');
+    
+        addDeviceBtn.addEventListener('click', () => {
+            const deviceItem = document.createElement('div');
+            deviceItem.className = 'device-item';
+            deviceItem.innerHTML = deviceList.children[0].innerHTML;
+            deviceList.appendChild(deviceItem);
+            
+            // Reset values
+            const newInputs = deviceItem.querySelectorAll('input');
+            newInputs.forEach(input => input.value = input.type === 'number' ? '1' : '');
+            deviceItem.querySelector('select').value = '';
+        });
+    
+        deviceList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-device')) {
+                if (deviceList.children.length > 1) {
+                    e.target.parentElement.remove();
+                }
+            }
+        });
+    
+        deviceList.addEventListener('change', (e) => {
+            if (e.target.classList.contains('device-select')) {
+                const customDevice = e.target.closest('.device-item').querySelector('.custom-device');
+                if (e.target.value === 'custom') {
+                    customDevice.style.display = 'block';
+                } else {
+                    customDevice.style.display = 'none';
+                }
+            }
+        });
+    });
+    </script>

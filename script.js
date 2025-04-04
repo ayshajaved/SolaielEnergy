@@ -344,3 +344,51 @@ document.addEventListener('DOMContentLoaded', function() {
         valueDisplay.textContent = this.value + ' sq ft';
     });
 });
+
+// Single device handler function
+function initializeDeviceHandler() {
+    const deviceList = document.querySelector('.device-list');
+    const selectedDevices = document.querySelector('.selected-devices');
+    const addDeviceBtn = document.querySelector('.add-device');
+
+    // Keep only the first device item
+    const firstDeviceItem = deviceList.querySelector('.device-item');
+    deviceList.innerHTML = '';
+    deviceList.appendChild(firstDeviceItem);
+
+    function handleAddDevice() {
+        const select = firstDeviceItem.querySelector('select');
+        const quantity = firstDeviceItem.querySelector('.quantity');
+        const hours = firstDeviceItem.querySelector('.hours');
+        
+        if (select.value) {
+            const deviceText = select.options[select.selectedIndex].text;
+            selectedDevices.insertAdjacentHTML('beforeend', `
+                <div class="selected-device">
+                    <span>${deviceText} × ${quantity.value} (${hours.value}hrs/day)</span>
+                    <button class="remove-selected">×</button>
+                </div>
+            `);
+            
+            // Reset inputs
+            select.value = '';
+            quantity.value = '1';
+            hours.value = '8';
+        }
+    }
+
+    // Remove old event listener and add new one
+    const newAddBtn = addDeviceBtn.cloneNode(true);
+    addDeviceBtn.parentNode.replaceChild(newAddBtn, addDeviceBtn);
+    newAddBtn.addEventListener('click', handleAddDevice);
+
+    // Event delegation for remove buttons
+    selectedDevices.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-selected')) {
+            e.target.parentElement.remove();
+        }
+    });
+}
+
+// Initialize device handler once DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeDeviceHandler);
