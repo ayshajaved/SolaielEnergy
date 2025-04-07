@@ -392,3 +392,93 @@ function initializeDeviceHandler() {
 
 // Initialize device handler once DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeDeviceHandler);
+
+// Add this to your existing script.js file
+
+// Add suggested questions display and handling
+// Initialize chatbot when DOM loads
+function initializeChatbot() {
+    const suggestedQuestions = [
+        "How much power can I save with solar panels?",
+        "What's the average installation cost?",
+        "How long do solar panels last?",
+        "What maintenance is required?",
+        "Do solar panels work during rain?",
+        "What size system do I need for my home?"
+    ];
+
+    // Add suggested questions to the chat interface
+    const chatContainer = document.querySelector('.chatbot-container');
+    const suggestionsDiv = document.createElement('div');
+    suggestionsDiv.className = 'suggested-questions';
+    
+    suggestedQuestions.forEach(question => {
+        const btn = document.createElement('button');
+        btn.className = 'question-suggestion';
+        btn.textContent = question;
+        btn.onclick = () => sendMessage(question);
+        suggestionsDiv.appendChild(btn);
+    });
+
+    chatContainer.insertBefore(suggestionsDiv, chatContainer.querySelector('.chatbot-input'));
+}
+
+// Function to send message and get response
+async function sendMessage(message) {
+    const chatMessages = document.querySelector('.chat-messages');
+    const input = document.getElementById('chat-input');
+    
+    // Clear input if it's from text input
+    if (input.value === message) {
+        input.value = '';
+    }
+
+    // Add user message
+    const userDiv = document.createElement('div');
+    userDiv.className = 'message user-message';
+    userDiv.textContent = message;
+    chatMessages.appendChild(userDiv);
+
+    // Show loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'message bot-message loading';
+    loadingDiv.textContent = 'Typing...';
+    chatMessages.appendChild(loadingDiv);
+
+    try {
+        const response = await fetch('http://localhost:5000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message })
+        });
+
+        const data = await response.json();
+        
+        // Remove loading indicator
+        loadingDiv.remove();
+
+        // Add bot response
+        const botDiv = document.createElement('div');
+        botDiv.className = 'message bot-message';
+        botDiv.textContent = data.response;
+        chatMessages.appendChild(botDiv);
+
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+        loadingDiv.textContent = 'Error: Could not connect to the server';
+        loadingDiv.className = 'message bot-message error';
+    }
+}
+
+// Initialize when DOM loads
+document.addEventListener('DOMContentLoaded', initializeChatbot);
+
+// Add event listener for Enter key
+document.getElementById('chat-input').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && this.value.trim() !== '') {
+        sendMessage(this.value.trim());
+    }
+});

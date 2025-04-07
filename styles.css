@@ -666,93 +666,69 @@ svg {
     animation: none !important;
 }
 
-.chatbot-container, .chatbot, .chatbot-header, .chatbot-input {
-    display: none;
-}
-
-.services-container.scroll-animate .spline-container {
-    transition: transform 0.5s ease-out;
-}
-
-.services-container.scroll-animate:hover .spline-container {
-    transform: scale(1.1);
-}
-.input-group {
+.chatbot-container {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    height: 100%;
+    padding: 20px;
 }
 
-.input-group label {
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 80%;
+}
+
+.user-message {
+    background: #4CAF50;
     color: white;
-    font-size: 0.9rem;
-    opacity: 0.8;
+    margin-left: auto;
 }
 
-.input-group {
+.bot-message {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.suggested-questions {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.input-group label {
-    color: white;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.device-list {
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
-.device-item {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-    margin-bottom: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.selected-devices {
-    margin: 10px 0;
-}
-
-.selected-device {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.question-suggestion {
+    background: rgba(76, 175, 80, 0.3);
     color: white;
-}
-
-.selected-device button {
-    background: none;
-    color: rgba(255, 0, 0, 0.7);
+    border: 1px solid #4CAF50;
+    padding: 8px 15px;
+    border-radius: 20px;
     cursor: pointer;
-    padding: 0 5px;
-}
-.device-select.form-control {
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    width: 200px;
+    transition: all 0.3s ease;
 }
 
-.device-select.form-control option {
-    background: #000000;
-    color: white;
-    padding: 8px;
+.question-suggestion:hover {
+    background: #4CAF50;
 }
 
-.device-select.form-control:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.4);
+.loading {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.error {
+    background: rgba(255,0,0,0.2);
+    color: #ff6b6b;
+}
+
+.question-suggestion:hover {
+    background: #a66610;
+    transform: translateY(-2px);
 }
