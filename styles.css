@@ -596,37 +596,32 @@ svg {
 }
 
 .nav-btn {
-    padding: 12px 24px; /* Slightly larger buttons */
+    padding: 12px 24px;
     border-radius: 30px;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Geist Sans', sans-serif;
     font-optical-sizing: auto;
-    font-weight: 900;
+    font-weight: 500;
     font-style: normal;
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
-    transition: all 0.4s ease;
-    background-color: #000000; /* Default black background */
-    color: #ffffff;
+    transition: all 0.3s ease;
+    background-color: #000000;
+    color: rgba(255, 255, 255, 0.8);
     border: 2px solid transparent;
 }
 
 .nav-btn:hover {
-    background-color: #c97b14; /* Standardized to dark orange */
-    color: #ffffff;
-    box-shadow: 0px 0px 20px rgba(201, 123, 20, 0.5),
-      0px 5px 5px -1px rgba(201, 123, 20, 0.25),
-      inset 4px 4px 8px rgba(231, 153, 50, 0.5),
-      inset -4px -4px 8px rgba(171, 93, 0, 0.35);
-    transform: translateX(5px); /* Move right on hover instead of down */
+    color: rgba(255, 255, 255, 1);
+    transform: none;
+    background: #000000;
+    box-shadow: none;
 }
 
 .nav-btn.active {
-    background-color: #c97b14; /* Active button is orange/gold */
-    color: #ffffff;
-    border: 2px solid #c97b14; /* Standardized to dark orange */
-    box-shadow: 0px 0px 10px rgba(201, 123, 20, 0.3);
+    color: rgba(255, 255, 255, 1);
+    background: #000000;
 }
 
 /* Services section layout */
@@ -900,5 +895,4 @@ svg {
     border-bottom: 1px solid rgba(255,255,255,0.2);
     background: linear-gradient(45deg, rgba(201, 123, 20, 0.2), rgba(0, 0, 0, 0.4));
     text-align: center;
-    letter-spacing: 1px;
-}
+    letter-spacing: 1px;}
