@@ -669,32 +669,92 @@ svg {
 .chatbot-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    padding: 20px;
+    height: calc(100vh - 70px);
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .chat-messages {
     flex: 1;
     overflow-y: auto;
-    margin-bottom: 20px;
+    padding: 20px;
+    font-size: 1.4em;
+    line-height: 1.6;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .message {
-    margin: 10px 0;
-    padding: 10px 15px;
+    margin: 15px 0;
+    padding: 15px 20px;
     border-radius: 15px;
-    max-width: 80%;
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+.chat-textbox {
+    font-size: 1.3em;
+}
+
+.chat-send-btn {
+    font-size: 1.3em;
+}
+
+.chatbot-input {
+    display: flex;
+    gap: 15px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-textbox {
+    flex: 1;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    height: 55px;
+    border: 1px solid rgba(201, 123, 20, 0.3);
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.chat-send-btn {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    height: 55px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #c97b14, #ffd700);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Style for chat messages */
+.message {
+    margin: 15px 0;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 1.5;
 }
 
 .user-message {
-    background: #4CAF50;
-    color: white;
-    margin-left: auto;
+    background: rgba(201, 123, 20, 0.2);
+    margin-left: 20px;
+    border-top-right-radius: 5px;
 }
 
 .bot-message {
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 20px;
+    border-top-left-radius: 5px;
 }
 
 .suggested-questions {
@@ -731,4 +791,69 @@ svg {
 .question-suggestion:hover {
     background: #a66610;
     transform: translateY(-2px);
+}
+
+.chatbot-input {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-textbox {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid rgba(201, 123, 20, 0.3);
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.chat-textbox:focus {
+    outline: none;
+    border-color: #c97b14;
+    box-shadow: 0 0 10px rgba(201, 123, 20, 0.2);
+}
+
+.chat-textbox::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-send-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #c97b14, #ffd700);
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.chat-send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(201, 123, 20, 0.3);
+    background: linear-gradient(45deg, #ffd700, #c97b14);
+}
+
+.chat-send-btn:active {
+    transform: translateY(0);
+}
+
+.ai-assistant-header {
+    padding: 25px;
+    color: white;
+    font-size: 2em;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    background: linear-gradient(45deg, rgba(201, 123, 20, 0.2), rgba(0, 0, 0, 0.4));
+    text-align: center;
+    letter-spacing: 1px;
 }
