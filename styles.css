@@ -686,22 +686,67 @@ svg {
     margin: 15px 0;
     padding: 15px 20px;
     border-radius: 15px;
-    font-size: 1.3em;
+    font-size: 1.1rem;
+    font-family: 'Josefin Sans', sans-serif;
     line-height: 1.5;
+    color: white;
 }
 
-.chat-textbox {
-    font-size: 1.3em;
+.user-message {
+    background: rgba(201, 123, 20, 0.2);
+    margin-left: 20px;
+    border-top-right-radius: 5px;
+    color: white;
+    text-align: right;
 }
 
-.chat-send-btn {
-    font-size: 1.3em;
+.bot-message {
+    background: rgba(255, 255, 255, 0.1);
+    margin-right: 20px;
+    border-top-left-radius: 5px;
+    color: white;
+}
+
+.suggested-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.question-suggestion {
+    background: rgba(76, 175, 80, 0.3);
+    color: white;
+    border: 1px solid #4CAF50;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.question-suggestion:hover {
+    background: #4CAF50;
+}
+
+.loading {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.error {
+    background: rgba(255,0,0,0.2);
+    color: #ff6b6b;
+}
+
+.question-suggestion:hover {
+    background: #a66610;
+    transform: translateY(-2px);
 }
 
 .chatbot-input {
     display: flex;
-    gap: 15px;
-    padding: 25px;
+    gap: 10px;
+    padding: 20px;
     background: rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
