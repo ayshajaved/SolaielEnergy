@@ -896,22 +896,3 @@ svg {
     background: linear-gradient(45deg, rgba(201, 123, 20, 0.2), rgba(0, 0, 0, 0.4));
     text-align: center;
     letter-spacing: 1px;}
-/* Add at the top of your styles.css */
-html {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
-
-html::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
-
-body {
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-}
-
-body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-}
