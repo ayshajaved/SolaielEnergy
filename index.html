@@ -123,88 +123,15 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <!-- After the About section and before Services section -->
     <!-- Solar Planner Section -->
-    <!-- Make sure the Solar Planner section has the matching ID and class -->
     <section class="page-section" id="solarplanner">
-        <h2 class="section-title">Solar Planner</h2>
-        <div class="planner-grid">
-            <!-- Input Section -->
-            <div class="input-section">
-                <h3>System Requirements</h3>
-                <div class="form-group">
-                    <label>Roof Size (sqft)</label>
-                    <input type="range" id="roofSizeSlider" class="form-control" min="100" max="5000" value="1000" oninput="updateRoofSize(this.value)">
-                    <span class="value-display" id="roofSizeDisplay" style="color: white;">1000 sqft</span>
-                </div>
-                <!-- Replace the devices form-group with this -->
-                <div class="form-group">
-                    <label>Devices</label>
-                    <div class="device-list">
-                        <div class="device-item">
-                            <select class="device-select form-control">
-                                <option value="">Select Device</option>
-                                <option value="computer">Computer (100W)</option>
-                                <option value="ac">AC (1500W)</option>
-                                <option value="heater">Heater (1200W)</option>
-                                <option value="tv">TV (150W)</option>
-                                <option value="fridge">Refrigerator (400W)</option>
-                                <option value="washing">Washing Machine (500W)</option>
-                                <option value="microwave">Microwave (800W)</option>
-                                <option value="custom">Add Custom Device</option>
-                            </select>
-                            <div class="input-group">
-                                <label>Qty:</label>
-                                <input type="number" class="form-control quantity" min="1" value="1">
-                            </div>
-                            <div class="input-group">
-                                <label>Hrs/day:</label>
-                                <input type="number" class="form-control hours" min="1" max="24" value="8">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="selected-devices"></div>
-                    <button class="add-device">+ Add Device</button>
-                </div>
-                <div class="custom-device" style="display: none;">
-                    <input type="text" class="form-control" placeholder="Device name">
-                    <input type="number" class="form-control" placeholder="Power (Watts)">
-                </div>
-                <button class="add-device" style="margin-top: 10px;">+ Add Another Device</button>
-            </div>
-    
-            <!-- Output Section -->
-            <div class="output-section">
-                <h3>Your Solar Plan</h3>
-                <div class="result-cards">
-                    <div class="result-card">
-                        <h4>System Size</h4>
-                        <div class="metrics-grid">
-                            <div class="metric-card">
-                                <span class="metric-label">Panels</span>
-                                <span class="metric-value">12</span>
-                            </div>
-                            <div class="metric-card">
-                                <span class="metric-label">Power</span>
-                                <span class="metric-value">4.8kW</span>
-                            </div>
-                            <div class="metric-card">
-                                <span class="metric-label">Area</span>
-                                <span class="metric-value">240sqft</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="action-grid">
-                    <button class="action-button">Download Report</button>
-                    <button class="action-button">Contact Installer</button>
-                </div>
-            </div>
-        </div>
+        <h2 class="steps-title shine" style="font-size: 4rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 900; color: white; text-align: center; margin-top: 2rem; font-family: 'Geist Sans', sans-serif;">
+            AI Solar Planner
+        </h2>
     </section>
-    <!-- Change the services section ID -->
-    <section class="page-section" id="services" style="height: 100vh; background: #000; overflow: hidden;">
+
+    <!-- Services Section -->
+    <section class="page-section" id="services">
         <div style="display: flex; height: 100vh; width: 100%; position: relative;">
             <div style="width: 60%; height: 100vh; position: relative; overflow: hidden;">
                 <iframe 
@@ -212,13 +139,6 @@
                     frameborder='0' 
                     style="width: 140%; height: 140%; position: absolute; top: -20%; left: -20%; transform: scale(1); border: none;"
                 ></iframe>
-                <!-- Remove this div -->
-                <!-- <div class="robot-message">
-                    I am Solaiel, your solar solution! How can I assist you?
-                </div> -->
-                
-                <!-- And remove this div -->
-                <!-- <div class="welcome-message">I am Solaiel, your solar solution! How can I assist you?</div> -->
             </div>
             <div style="width: 40%; height: 100vh; background: rgba(0, 0, 0, 0.8); border-left: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
                 <div class="solaiel-highlight" style="padding: 25px; color: white; font-size: 2.5em; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); background: linear-gradient(45deg, rgba(201, 123, 20, 0.2), rgba(0, 0, 0, 0.4)); -webkit-text-stroke: 0.5px white;">
