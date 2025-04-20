@@ -35,12 +35,25 @@ class GeminiBot:
             history=[
                 {
                     "role": "user",
-                    "parts": ["hey what you \noffers"],
+                    "parts": ["What services do you offer?"],
                 },
                 {
                     "role": "model",
                     "parts": [
-                        "Assalam o Alaikum! As Solaiel, a solar energy expert specializing in Pakistan's renewable energy sector, I offer three key services:\n\n1. **Solaiel Chatbot:**  I provide instant answers to your questions regarding solar energy in Pakistan. This includes technical details, cost estimations, regulatory information, and troubleshooting advice.  Think of me as your 24/7 solar expert on demand.\n\n2. **AI Solar Planning:** This service leverages advanced AI to design a customized solar system perfectly suited to your specific needs and location in Pakistan.  This includes detailed specifications for panels, inverters, batteries (if applicable),  a comprehensive cost analysis in PKR, and a projected return on investment (ROI) considering local weather patterns and electricity tariffs. We'll even factor in NEPRA guidelines and local installation requirements.\n\n3. **Finding Solar Engineers/Installers Near You:**  I can connect you with verified and reputable solar engineers and installers in your area within Pakistan, helping you find the best professionals for your project, ensuring quality workmanship and adherence to best practices.\n"
+                        """Assalam o Alaikum! As Solaiel, I offer three key services:
+
+1. **Solaiel Chatbot:** I provide expert guidance on solar solutions.
+
+2. **AI Solar Planning:** Our advanced service helps design your perfect solar system:
+   - Input your roof size
+   - Add your devices and usage patterns
+   - Get detailed system specifications
+   - Receive cost estimates and ROI analysis
+   Visit our Solar Planner section to get started!
+
+3. **Find Local Installers:** We connect you with verified solar professionals in your area.
+
+How can I assist you today?"""
                     ],
                 }
             ]
@@ -48,32 +61,48 @@ class GeminiBot:
 
     def get_gemini_response(self, user_input):
         try:
-            system_prompt = """You are an expert solar energy engineer specializing in Pakistan's renewable energy sector.Your name is solaiel and always greet with "Assalam o Alaikum" in response of the user first question and you offer three services
-                1:Solaiel chatbot
-                2:AI Solar planning
-                3:Finding solar engineers/installer near user
-                You are required to answer with this expertise when user ask about your services
-                Your expertise includes:
-                1. Technical solar system design and specifications (panels, inverters, batteries)
-                2. Detailed cost analysis and ROI calculations in PKR
-                3. Installation requirements and best practices for Pakistani climate
-                4. Grid-tie, hybrid, and off-grid solutions
-                5. Local regulations and NEPRA guidelines
-                6. Regional weather patterns and their impact on solar efficiency
-                7. Troubleshooting and maintenance in dusty/hot conditions
-                8. Load calculation and system sizing
-                9. Quality standards and equipment certification
-                10. Local market dynamics and trusted suppliers
+            # Check for solar planning related keywords
+            planning_keywords = ["plan", "design", "system", "house", "home", "calculate"]
+            installer_keywords = ["installer", "install", "professional", "engineer", "find", "near"]
+            
+            if any(keyword in user_input.lower() for keyword in planning_keywords):
+                planning_response = """I'll help you with our AI Solar Planning service! Here's how it works:
 
-                Provide precise, technical, yet understandable responses. Include specific numbers, calculations, and practical recommendations when relevant. Focus on Pakistan-specific solutions and current market conditions. If asked about costs, provide recent market rates in PKR.Greet people with "Assalam o alikum" and then in general greeting also.
-                
-                """
-            
-            # Send system prompt first if it's a new conversation
-            if not self.chat_session.history:
-                self.chat_session.send_message(system_prompt)
-            
-            # Send user message and get response
+1. Visit our Solar Planner section
+2. Input your:
+   - Roof size (in square feet)
+   - List of electrical devices
+   - Daily usage patterns
+
+Our AI will then:
+- Design an optimal solar system for your needs
+- Calculate required components
+- Provide detailed cost analysis in PKR
+- Show expected ROI and savings
+
+Would you like to try our AI Solar Planner now? Explore our service"""
+                return planning_response
+
+            # Check for installer related keywords
+            elif any(keyword in user_input.lower() for keyword in installer_keywords):
+                installer_response = """I'll help you find certified solar installers in your area! Here's how our Find Installers service works:
+
+1. Visit our Find Installers section
+2. Simply input your:
+   - Location (city/area in Pakistan)
+   - Project details (optional)
+
+Our system will then:
+- Show you verified installers near you
+- Display their ratings and reviews
+- Provide their expertise and experience
+- Show their previous installations
+- Help you get installation quotes
+
+Would you like to find installers in your area now? Explore our service"""
+                return installer_response
+
+            # Regular chat response
             response = self.chat_session.send_message(user_input)
             return response.text
 

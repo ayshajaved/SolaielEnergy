@@ -399,12 +399,12 @@ document.addEventListener('DOMContentLoaded', initializeDeviceHandler);
 // Initialize chatbot when DOM loads
 function initializeChatbot() {
     const suggestedQuestions = [
-        "How much power can I save with solar panels?",
-        "What's the average installation cost?",
+        "Introduce yourself solaiel...",
+        "How can I plan solar system for my house?",
         "How long do solar panels last?",
         "What maintenance is required?",
         "Do solar panels work during rain?",
-        "What size system do I need for my home?"
+        "How can I find installer?"
     ];
 
     // Add suggested questions to the chat interface
@@ -425,28 +425,25 @@ function initializeChatbot() {
 
 // Function to send message and get response
 async function sendMessage(message) {
-    const chatMessages = document.querySelector('.chat-messages');
-    const input = document.getElementById('chat-input');
+    if (!message.trim()) return;
     
-    // Clear input if it's from text input
-    if (input.value === message) {
-        input.value = '';
-    }
-
-    // Add user message
-    const userDiv = document.createElement('div');
-    userDiv.className = 'message user-message';
-    userDiv.textContent = message;
-    chatMessages.appendChild(userDiv);
-
-    // Show loading indicator
+    const chatMessages = document.getElementById('chat-messages');
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user-message';
+    userMessage.textContent = message;
+    chatMessages.appendChild(userMessage);
+    
+    // Clear input
+    document.getElementById('chat-input').value = '';
+    
+    // Show loading
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'message bot-message loading';
     loadingDiv.textContent = 'Typing...';
     chatMessages.appendChild(loadingDiv);
 
     try {
-        const response = await fetch('http://localhost:5000/chat', {
+        const response = await fetch('http://127.0.0.1:5000/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -454,23 +451,32 @@ async function sendMessage(message) {
             body: JSON.stringify({ message: message })
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
+        console.log('Bot response:', data); // Debug log
         
-        // Remove loading indicator
         loadingDiv.remove();
-
-        // Add bot response
-        const botDiv = document.createElement('div');
-        botDiv.className = 'message bot-message';
-        botDiv.textContent = data.response;
-        chatMessages.appendChild(botDiv);
-
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot-message';
+        botMessage.textContent = data.response;
+        chatMessages.appendChild(botMessage);
+        
     } catch (error) {
-        loadingDiv.textContent = 'Error: Could not connect to the server';
-        loadingDiv.className = 'message bot-message error';
+        console.error('Chat error:', error);
+        loadingDiv.remove();
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'message bot-message error';
+        errorDiv.textContent = 'Error connecting to the server. Please try again.';
+        chatMessages.appendChild(errorDiv);
     }
+
+    // Scroll to latest message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 // Initialize when DOM loads
