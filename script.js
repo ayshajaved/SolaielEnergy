@@ -97,23 +97,23 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
 // Enhanced cursor effect
-const cursor = document.createElement('div');
-cursor.className = 'cursor';
-document.body.appendChild(cursor);
+// Custom cursor
+document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.createElement('div');
+    cursor.classList.add('circle-cursor');
+    document.body.appendChild(cursor);
 
-window.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    
-    // Check if mouse is over home section or nav buttons
-    const isOnHome = e.target.closest('#home');
-    const isOnButton = e.target.closest('.nav-btn');
-    
-    if (isOnHome || isOnButton) {
-        cursor.style.opacity = '1';
-    } else {
-        cursor.style.opacity = '0';
-    }
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX - cursor.offsetWidth / 2 + 'px';
+        cursor.style.top = e.clientY - cursor.offsetHeight / 2 + 'px';
+    });
+
+    // Add hover effect for interactive elements
+    const interactiveElements = document.querySelectorAll('button, .btn, .nav-btn, a, input');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
 });
 
 // Add hollow cursor effect for navigation buttons

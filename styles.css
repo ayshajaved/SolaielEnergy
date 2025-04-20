@@ -899,3 +899,40 @@ svg {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(201, 123, 20, 0.3);
 }
+
+/* Custom cursor */
+* {
+    cursor: none !important;
+}
+
+.circle-cursor {
+    width: 20px;
+    height: 20px;
+    background: rgba(201, 123, 20, 0.3);
+    border: 2px solid #c97b14;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s, height 0.3s, background 0.3s;
+}
+
+.circle-cursor.hover {
+    width: 50px;
+    height: 50px;
+    background: rgba(201, 123, 20, 0.1);
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    cursor: pointer;
+}
+
+/* Hide cursor when over buttons */
+.btn:hover ~ .cursor,
+.nav-btn:hover ~ .cursor {
+    transform: scale(0);
+}
