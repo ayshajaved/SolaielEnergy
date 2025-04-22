@@ -937,3 +937,21 @@ svg {
 .nav-btn:hover ~ .cursor {
     transform: scale(0);
 }
+#solarplanner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+}
+
+.planner-cards {
+    flex: 1;
+    width: 100%;
+    /* Add your card grid styles here */
+}
+
+.planner-bottom {
+    margin-top: 4rem;
+    width: 100%;
+}
