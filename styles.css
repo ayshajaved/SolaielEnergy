@@ -994,3 +994,22 @@ svg {
 .button-container {
     margin: 0.5rem 0;
 }
+.animated-button {
+    width: 300px;  /* Increased width */
+    position: relative;
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.button__text {
+    white-space: nowrap;  /* Prevent text wrapping */
+    font-size: 1rem;  /* Adjusted font size */
+    letter-spacing: 1px;  /* Added letter spacing */
+}
