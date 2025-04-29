@@ -212,6 +212,52 @@ body {
   }
   
   /* Update buttons */
+  /* Update the button container styles */
+  .mt-6 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+  }
+  
+  /* Reset and override previous button styles */
+  #find-installers-btn,
+  #toggle-view-btn {
+      all: unset;
+      position: relative;
+      z-index: 0;
+      width: 240px;
+      height: 56px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'Josefin Sans', sans-serif;
+      color: var(--line_color);
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+  
+  /* Remove any conflicting hover styles */
+  #find-installers-btn:hover,
+  #toggle-view-btn:hover {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+  }
+  
+  /* Container adjustment */
+  .mt-6 {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  }
+  
+  /* Ensure proper text alignment */
+  #find-installers-btn .button__text,
+  #toggle-view-btn .button__text {
+      font-size: 0.9rem;
+  }
+  
   #find-installers-btn,
   #toggle-view-btn {
       background-color: #000;
@@ -236,9 +282,12 @@ body {
   #map {
       height: 400px;
       width: 100%;
-      border-radius: 4px;
-      border: none;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #242f3e;
       margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
   }
   
   /* Update list container */
@@ -275,7 +324,8 @@ body {
   /* Update list items */
   #installer-list div {
       padding: 1rem;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 1rem;
   }
   
   #installer-list div:last-child {
@@ -302,4 +352,53 @@ body {
   
   .gm-style-iw * {
       color: #000;
+  }
+  
+  .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+  }
+  
+  #find-installers-btn,
+  #toggle-view-btn {
+      width: 200px;
+      height: 45px;
+  }
+  
+  .button__text {
+      font-size: 0.9rem;
+      white-space: nowrap;
+  }
+  
+  .container {
+      max-width: 1000px;
+      padding: 1rem;
+  }
+  
+  #location-input,
+  #radius-input {
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+  }
+
+  #results-container {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 1rem;
+  }
+
+  #results-container::-webkit-scrollbar {
+      width: 8px;
+  }
+
+  #results-container::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+  }
+
+  #results-container::-webkit-scrollbar-thumb {
+      background: #c97b14;
+      border-radius: 4px;
   }

@@ -266,28 +266,33 @@
     <!-- Update the contact section -->
     <section class="page-section" id="contact">
         <div class="container mx-auto p-6">
-            <h1 class="text-3xl font-bold text-center mb-6">FIND SOLAR INSTALLERS</h1>
-            <div class="mt-6">
-                <input id="location-input" type="text" class="w-full p-2 border rounded-lg" placeholder="Enter location (e.g., Lahore)">
-                <input id="radius-input" type="number" class="w-full p-2 border rounded-lg mt-2" placeholder="Enter radius (1-50 km)" min="1" max="50">
-                <button id="find-installers-btn" class="w-full mt-2">FIND INSTALLERS</button>
-                <button id="toggle-view-btn" class="w-full mt-2">VIEW LIST OF SOLAR ENGINEERS NEAR YOU</button>
-            </div>
-            <div id="map" style="height: 400px;" class="mt-6"></div>
-            <div id="installer-list" class="mt-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md" style="display: none;">
-                <div id="filter-section" class="mb-4">
-                    <label for="rating-filter" class="block text-white mb-2">Filter by Rating:</label>
-                    <select id="rating-filter" class="w-full p-2 border rounded-lg mb-4">
-                        <option value="all">All</option>
-                        <option value="4">4 and above</option>
-                        <option value="3">3 and above</option>
-                    </select>
-                    <label for="website-filter" class="block text-white mb-2">Filter by Website:</label>
-                    <select id="website-filter" class="w-full p-2 border rounded-lg">
-                        <option value="all">All</option>
-                        <option value="yes">With Website</option>
-                    </select>
+            <h1 class="text-3xl font-bold text-center mb-4">FIND SOLAR INSTALLERS</h1>
+            <div class="input-group">
+                <input id="location-input" type="text" class="w-full p-2 border rounded-lg mb-2" placeholder="Enter location (e.g., Lahore)">
+                <input id="radius-input" type="number" class="w-full p-2 border rounded-lg mb-3" placeholder="Enter radius (1-50 km)" min="1" max="50">
+                
+                <div class="button-group" style="display: flex; justify-content: center; gap: 20px; margin: 1rem 0;">
+                    <a href="#" id="find-installers-btn" class="animated-button type--C">
+                        <div class="button__line"></div>
+                        <div class="button__line"></div>
+                        <span class="button__text">FIND INSTALLERS</span>
+                        <div class="button__drow1"></div>
+                        <div class="button__drow2"></div>
+                    </a>
+                
+                    <a href="#" id="toggle-view-btn" class="animated-button type--C">
+                        <div class="button__line"></div>
+                        <div class="button__line"></div>
+                        <span class="button__text">VIEW LIST</span>
+                        <div class="button__drow1"></div>
+                        <div class="button__drow2"></div>
+                    </a>
                 </div>
+            </div>
+            <div id="map" style="height: 400px; margin-top: 1rem;" class="mt-4"></div>
+            <!-- Add this list container -->
+            <div id="installer-list" class="mt-6 bg-white p-6 rounded-lg shadow-md" style="display: none;">
+                <!-- Results will be populated here -->
             </div>
         </div>
     </section>
@@ -299,43 +304,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
+    <!-- Replace the existing Google Maps scripts with this -->
+    <script>
+        function initMap() {
+            if (typeof google === 'undefined') {
+                setTimeout(initMap, 100);
+                return;
+            }
+            window.initMap();
+        }
+    </script>
     <script type="module" src="googleMaps.js"></script>
 </body>
 </html>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const deviceList = document.querySelector('.device-list');
-        const addDeviceBtn = document.querySelector('.add-device');
-    
-        addDeviceBtn.addEventListener('click', () => {
-            const deviceItem = document.createElement('div');
-            deviceItem.className = 'device-item';
-            deviceItem.innerHTML = deviceList.children[0].innerHTML;
-            deviceList.appendChild(deviceItem);
-            
-            // Reset values
-            const newInputs = deviceItem.querySelectorAll('input');
-            newInputs.forEach(input => input.value = input.type === 'number' ? '1' : '');
-            deviceItem.querySelector('select').value = '';
-        });
-    
-        deviceList.addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove-device')) {
-                if (deviceList.children.length > 1) {
-                    e.target.parentElement.remove();
-                }
-            }
-        });
-    
-        deviceList.addEventListener('change', (e) => {
-            if (e.target.classList.contains('device-select')) {
-                const customDevice = e.target.closest('.device-item').querySelector('.custom-device');
-                if (e.target.value === 'custom') {
-                    customDevice.style.display = 'block';
-                } else {
-                    customDevice.style.display = 'none';
-                }
-            }
-        });
-    });
-    </script>
