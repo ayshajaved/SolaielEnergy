@@ -1,0 +1,305 @@
+body {
+    font-family: 'Arial', sans-serif; /* Update font to match the theme */
+    background-color: #000; /* Change background color to black */
+    color: #fff; /* Change text color to white */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* General Styles for Headings */
+  h1, h2, h3, .section-title, .steps-title {
+    font-family: 'Geist Sans', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  /* Specific Styles for Section Titles */
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Specific Styles for Steps Titles */
+  .steps-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Update the "Find Installer" heading to match the style */
+  h1.text-3xl {
+    font-family: 'Geist Sans', sans-serif; /* Apply the same font style */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 3rem; /* Adjust font size to match */
+  }
+  
+  /* General Styles for Content */
+  .content, .section-subtitle, p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #aaaaaa;
+    text-align: center;
+    margin: 0 1.5rem;
+  }
+  
+  /* Specific Styles for Section Subtitles */
+  .section-subtitle {
+    font-size: 1.7rem;
+    color: #aaa;
+    margin-top: 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  input, button {
+    margin-top: 10px;
+    font-family: 'Geist Sans', sans-serif; /* Apply the same font style */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  input {
+    background-color: #000; /* Black background for input fields */
+    color: #fff; /* White text color */
+    border: 1px solid #333; /* Border to make input fields visible */
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  /* Make button styles more specific to override Tailwind */
+  button, 
+  .bg-blue-500, 
+  .bg-gray-500,
+  #find-installers-btn,
+  #toggle-view-btn {
+    background-color: #000 !important; /* Black background for buttons */
+    color: #fff !important; /* White text color */
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Geist Sans', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  button:hover,
+  .bg-blue-500:hover,
+  .bg-gray-500:hover,
+  #find-installers-btn:hover,
+  #toggle-view-btn:hover {
+    background-color: #333 !important; /* Slightly lighter background on hover */
+  }
+  
+  /* Map container styles */
+  #map {
+      border-radius: 8px;
+      border: 1px solid #333;
+      background-color: #222;
+  }
+  
+  #installer-list {
+      max-height: 400px;
+      overflow-y: auto;
+      background-color: #222;
+      color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  #installer-list div {
+      padding: 15px;
+      border-bottom: 1px solid #333;
+      transition: background-color 0.3s;
+  }
+  
+  #installer-list div:hover {
+      background-color: #333;
+  }
+  
+  .website-link {
+      color: #4CAF50;
+      text-decoration: underline;
+  }
+  
+  #location-input,
+  #radius-input {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #333;
+  }
+  
+  #find-installers-btn,
+  #toggle-view-btn {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+  }
+  
+  #find-installers-btn:hover,
+  #toggle-view-btn:hover {
+      background-color: #45a049;
+  }
+  
+  #filter-section {
+    background-color: #222; /* Match the list view background */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  #filter-section label {
+    font-family: 'Geist Sans', sans-serif;
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  #filter-section select {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Update the container styles */
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+  }
+  
+  /* Update the heading styles */
+  h1.text-3xl {
+      font-family: 'Geist Sans', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffffff;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+  }
+  
+  /* Update input fields */
+  #location-input,
+  #radius-input {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 100%;
+      margin-bottom: 1rem;
+  }
+  
+  /* Update buttons */
+  #find-installers-btn,
+  #toggle-view-btn {
+      background-color: #000;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 1rem;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      width: 100%;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s;
+  }
+  
+  #find-installers-btn:hover,
+  #toggle-view-btn:hover {
+      background-color: #333;
+  }
+  
+  /* Update map container */
+  #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 4px;
+      border: none;
+      margin-top: 1rem;
+  }
+  
+  /* Update list container */
+  #installer-list {
+      background-color: #222;
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+  }
+  
+  /* Update filter section */
+  #filter-section {
+      background-color: transparent;
+      margin-bottom: 1.5rem;
+  }
+  
+  #filter-section label {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+  }
+  
+  #filter-section select {
+      background-color: #fff;
+      color: #000;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 4px;
+      width: 100%;
+      margin-bottom: 1rem;
+  }
+  
+  /* Update list items */
+  #installer-list div {
+      padding: 1rem;
+      border-bottom: 1px solid #333;
+  }
+  
+  #installer-list div:last-child {
+      border-bottom: none;
+  }
+  
+  /* Update website links */
+  .website-link {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 600;
+  }
+  
+  .website-link:hover {
+      text-decoration: underline;
+  }
+  
+  /* Update info window styles */
+  .gm-style-iw {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 4px;
+  }
+  
+  .gm-style-iw * {
+      color: #000;
+  }

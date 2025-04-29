@@ -263,27 +263,45 @@
     }
     </script>
 
-    <!-- Update the contact section ID -->
+    <!-- Update the contact section -->
     <section class="page-section" id="contact">
-        <h2 class="section-title">Find Solar Installers</h2>
-        <div class="section-content">
-            <p>Connect with certified solar engineers and installers in your area.</p>
+        <div class="container mx-auto p-6">
+            <h1 class="text-3xl font-bold text-center mb-6">FIND SOLAR INSTALLERS</h1>
+            <div class="mt-6">
+                <input id="location-input" type="text" class="w-full p-2 border rounded-lg" placeholder="Enter location (e.g., Lahore)">
+                <input id="radius-input" type="number" class="w-full p-2 border rounded-lg mt-2" placeholder="Enter radius (1-50 km)" min="1" max="50">
+                <button id="find-installers-btn" class="w-full mt-2">FIND INSTALLERS</button>
+                <button id="toggle-view-btn" class="w-full mt-2">VIEW LIST OF SOLAR ENGINEERS NEAR YOU</button>
+            </div>
+            <div id="map" style="height: 400px;" class="mt-6"></div>
+            <div id="installer-list" class="mt-6 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md" style="display: none;">
+                <div id="filter-section" class="mb-4">
+                    <label for="rating-filter" class="block text-white mb-2">Filter by Rating:</label>
+                    <select id="rating-filter" class="w-full p-2 border rounded-lg mb-4">
+                        <option value="all">All</option>
+                        <option value="4">4 and above</option>
+                        <option value="3">3 and above</option>
+                    </select>
+                    <label for="website-filter" class="block text-white mb-2">Filter by Website:</label>
+                    <select id="website-filter" class="w-full p-2 border rounded-lg">
+                        <option value="all">All</option>
+                        <option value="yes">With Website</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Scripts -->
+    <!-- Before closing body tag -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
-    <script>
-    function updateRoofSize(value) {
-        document.getElementById('roofSizeDisplay').textContent = value + ' sqft';
-    }
-    </script>
-    </body>
-    </html>
+    <script type="module" src="googleMaps.js"></script>
+</body>
+</html>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const deviceList = document.querySelector('.device-list');
