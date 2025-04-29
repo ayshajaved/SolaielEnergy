@@ -47,9 +47,63 @@ function searchInstallers(userLocation, radius) {
   });
 }
 
+// Add this function after your existing functions
+function downloadCSV(results) {
+    const csvContent = [
+        ['Name', 'Address', 'Rating'], // CSV header
+        ...results.map(place => [
+            place.name,
+            place.vicinity,
+            place.rating || 'N/A'
+        ])
+    ].map(row => row.join(',')).join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'solar_installers.csv';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+}
+
 function displayResults(results, userLocation) {
   clearMarkers();
   const bounds = new google.maps.LatLngBounds();
+  const listContainer = document.getElementById('installer-list');
+  
+  // Updated controls with consistent styling
+  listContainer.innerHTML = `
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; gap: 15px;">
+      <a href="#" id="sort-by-rating" class="animated-button type--C" style="transform: scale(0.7);">
+          <div class="button__line"></div>
+          <div class="button__line"></div>
+          <span class="button__text">SORT BY RATING</span>
+          <div class="button__drow1"></div>
+          <div class="button__drow2"></div>
+      </a>
+      <a href="#" id="download-csv" class="animated-button type--C" style="transform: scale(0.7);">
+          <div class="button__line"></div>
+          <div class="button__line"></div>
+          <span class="button__text">DOWNLOAD LIST</span>
+          <div class="button__drow1"></div>
+          <div class="button__drow2"></div>
+      </a>
+    </div>
+    <div id="filtered-results"></div>
+  `;
+
+  // Updated event listeners
+  document.getElementById('sort-by-rating').addEventListener('click', (e) => {
+    e.preventDefault();
+    updateListView(results, userLocation, 'rating');
+  });
+
+  // Initial display
+  updateListView(results, userLocation, 'none');
+
   const userMarker = new google.maps.Marker({
     position: userLocation,
     map: map,
@@ -57,9 +111,6 @@ function displayResults(results, userLocation) {
   });
   markers.push(userMarker);
   bounds.extend(userLocation);
-
-  const listContainer = document.getElementById('installer-list');
-  listContainer.innerHTML = ''; // Clear previous list
 
   results.forEach(place => {
     const marker = new google.maps.Marker({
@@ -106,6 +157,12 @@ function displayResults(results, userLocation) {
 
   map.fitBounds(bounds);
   toggleView('map');
+
+  // Update the download button click handler
+  document.getElementById('download-csv').addEventListener('click', (e) => {
+    e.preventDefault();
+    downloadCSV(results);
+  });
 }
 
 function clearMarkers() {
@@ -117,15 +174,16 @@ function toggleView(view) {
   const mapElement = document.getElementById('map');
   const listElement = document.getElementById('installer-list');
   const toggleButton = document.getElementById('toggle-view-btn');
+  const buttonText = toggleButton.querySelector('.button__text');
 
   if (view === 'map') {
     mapElement.style.display = 'block';
     listElement.style.display = 'none';
-    toggleButton.textContent = 'View List of Solar Engineers Near You'; // Change button name
+    buttonText.textContent = 'VIEW LIST';
   } else {
     mapElement.style.display = 'none';
     listElement.style.display = 'block';
-    toggleButton.textContent = 'View Map'; // Change button name
+    buttonText.textContent = 'VIEW MAP';
   }
 }
 
@@ -147,3 +205,44 @@ document.getElementById('toggle-view-btn').addEventListener('click', () => {
 window.initMap = initMap;
 
 window.onload = loadGoogleMapsAPI;
+
+
+// Add this new function for updating the list view
+function updateListView(results, userLocation, sortType) {
+  const filteredResults = document.getElementById('filtered-results');
+  let sortedResults = [...results];
+
+  // Apply sorting
+  if (sortType === 'rating') {
+    sortedResults.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  }
+
+  // Update markers and list view
+  markers.forEach(marker => {
+    if (marker.icon.url.includes('blue-dot')) return; // Skip user marker
+    const isVisible = sortedResults.some(place => 
+      place.geometry.location.equals(marker.getPosition())
+    );
+    marker.setVisible(isVisible);
+  });
+
+  // Update the list view
+  filteredResults.innerHTML = '';
+  sortedResults.forEach(place => {
+    const service = new google.maps.places.PlacesService(map);
+    service.getDetails({ placeId: place.place_id }, (details, status) => {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        const listItem = document.createElement('div');
+        listItem.className = 'p-4 border-b';
+        listItem.innerHTML = `
+          <strong>${details.name}</strong><br>
+          ${details.vicinity}<br>
+          Rating: ${details.rating || 'N/A'}<br>
+          Contact: ${details.formatted_phone_number || 'N/A'}<br>
+          Website: ${details.website ? `<a href="${details.website}" target="_blank" class="website-link">${details.website}</a>` : 'N/A'}
+        `;
+        filteredResults.appendChild(listItem);
+      }
+    });
+  });
+}
