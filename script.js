@@ -401,6 +401,7 @@ function initializeChatbot() {
     const suggestedQuestions = [
         "Introduce yourself solaiel...",
         "How can I plan solar system for my house?",
+        "What does the solar system consist of?",
         "How long do solar panels last?",
         "What maintenance is required?",
         "Do solar panels work during rain?",
