@@ -171,13 +171,22 @@
             Our AI Solar Planner uses advanced machine learning to design a personalized solar system for your home. Enter your roof size, energy usage, and location, and get a tailored plan with estimated savings, system size, and more—all in minutes!
         </p>
         <div class="button-container">
-            <a href="#" class="animated-button type--C">
+            <button id="googleSignInButton" class="animated-button type--C">
                 <div class="button__line"></div>
                 <div class="button__line"></div>
-                <span class="button__text">GET STARTED WITH  GOOGLE</span>
+                <span class="button__text">GET STARTED WITH GOOGLE</span>
                 <div class="button__drow1"></div>
                 <div class="button__drow2"></div>
-            </a>
+            </button>
+            <!-- Add greeting and logout elements -->
+            <div id="greeting" style="color: white; font-size: 1.5rem; margin-top: 1rem; text-align: center;"></div>
+            <button id="logout" class="animated-button type--C" style="display: none; margin-top: 1rem;">
+                <div class="button__line"></div>
+                <div class="button__line"></div>
+                <span class="button__text">LOGOUT</span>
+                <div class="button__drow1"></div>
+                <div class="button__drow2"></div>
+            </button>
         </div>
     </section>
 
@@ -313,7 +322,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
     <script src="script.js"></script>
+    <!-- Add the db.js script with type="module" -->
+    <script src="firebase/db.js" type="module"></script>
+    
     <!-- Replace the existing Google Maps scripts with this -->
     <script>
         function initMap() {
