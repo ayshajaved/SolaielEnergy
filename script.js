@@ -397,6 +397,7 @@ document.addEventListener('DOMContentLoaded', initializeDeviceHandler);
 
 // Add suggested questions display and handling
 // Initialize chatbot when DOM loads
+// Add this to your initializeChatbot function
 function initializeChatbot() {
     const suggestedQuestions = [
         "Introduce yourself solaiel...",
@@ -404,24 +405,105 @@ function initializeChatbot() {
         "What does the solar system consist of?",
         "How long do solar panels last?",
         "What maintenance is required?",
-        "Do solar panels work during rain?",
         "How can I find installer?"
     ];
 
     // Add suggested questions to the chat interface
     const chatContainer = document.querySelector('.chatbot-container');
+    
+    // Create a container for the suggested questions that will be inside the chat
     const suggestionsDiv = document.createElement('div');
     suggestionsDiv.className = 'suggested-questions';
     
+    // Style the suggestions container
+    suggestionsDiv.style.cssText = `
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px;
+        margin-top: 10px;
+        border-top: 1px solid rgba(201, 123, 20, 0.3);
+        background: rgba(0, 0, 0, 0.2);
+    `;
+    
+    // Add a title for the suggestions
+    const title = document.createElement('div');
+    title.textContent = 'Ask me about:';
+    title.style.cssText = `
+        width: 100%;
+        color: #ff9d2f;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    `;
+    suggestionsDiv.appendChild(title);
+    
+    // Add the question buttons
     suggestedQuestions.forEach(question => {
         const btn = document.createElement('button');
         btn.className = 'question-suggestion';
         btn.textContent = question;
         btn.onclick = () => sendMessage(question);
+        
+        // Style the buttons
+        btn.style.cssText = `
+            background: rgba(201, 123, 20, 0.2);
+            border: 1px solid rgba(201, 123, 20, 0.4);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        `;
+        
+        // Add hover effect
+        btn.addEventListener('mouseenter', () => {
+            btn.style.background = 'rgba(201, 123, 20, 0.4)';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.background = 'rgba(201, 123, 20, 0.2)';
+        });
+        
         suggestionsDiv.appendChild(btn);
     });
 
-    chatContainer.insertBefore(suggestionsDiv, chatContainer.querySelector('.chatbot-input'));
+    // Insert the suggestions div at the top of the chat messages
+    const chatMessages = document.getElementById('chat-messages');
+    if (chatMessages) {
+        // Hide scrollbar but keep scroll functionality
+        chatMessages.style.cssText = `
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        `;
+        
+        // Hide scrollbar for Chrome, Safari and Opera
+        const style = document.createElement('style');
+        style.textContent = `
+            #chat-messages::-webkit-scrollbar {
+                display: none;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        chatMessages.insertBefore(suggestionsDiv, chatMessages.firstChild);
+    }
+
+    // Add event listener for Enter key in chat input
+    const chatInput = document.getElementById('chat-input');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendMessage(this.value);
+            }
+        });
+    }
 }
 
 // Function to send message and get response
@@ -435,13 +517,17 @@ async function sendMessage(message) {
     chatMessages.appendChild(userMessage);
     
     // Clear input
-    document.getElementById('chat-input').value = '';
+    const inputField = document.getElementById('chat-input');
+    if (inputField) inputField.value = '';
     
     // Show loading
     const loadingDiv = document.createElement('div');
     loadingDiv.className = 'message bot-message loading';
     loadingDiv.textContent = 'Typing...';
     chatMessages.appendChild(loadingDiv);
+    
+    // Scroll to latest message immediately after adding user message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 
     try {
         const response = await fetch('http://127.0.0.1:5000/chat', {
@@ -466,6 +552,9 @@ async function sendMessage(message) {
         botMessage.textContent = data.response;
         chatMessages.appendChild(botMessage);
         
+        // Scroll to latest message again after adding bot response
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
     } catch (error) {
         console.error('Chat error:', error);
         loadingDiv.remove();
@@ -474,18 +563,11 @@ async function sendMessage(message) {
         errorDiv.className = 'message bot-message error';
         errorDiv.textContent = 'Error connecting to the server. Please try again.';
         chatMessages.appendChild(errorDiv);
+        
+        // Scroll to error message
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-
-    // Scroll to latest message
-    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 // Initialize when DOM loads
 document.addEventListener('DOMContentLoaded', initializeChatbot);
-
-// Add event listener for Enter key
-document.getElementById('chat-input').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && this.value.trim() !== '') {
-        sendMessage(this.value.trim());
-    }
-});
