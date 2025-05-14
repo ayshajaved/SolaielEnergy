@@ -1,9 +1,10 @@
 // Firebase authentication implementation
 import { firebaseConfig } from "./config.js"; // Make sure to add .js extension
+import { showSolarProfileForm } from "./form.js";
 
 // Initialize Firebase using the compat version
 const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+export const auth = firebase.auth();
 
 // Get elements
 const googleSignInButton = document.getElementById('googleSignInButton');
@@ -124,24 +125,15 @@ function createWelcomeScreen(user) {
     journeyText.style.marginBottom = '2rem';
     journeySection.appendChild(journeyText);
     
-    // Add buttons
+    // Add the solar profile form from form.js
+    const solarForm = showSolarProfileForm(user);
+    journeySection.appendChild(solarForm);
+    
+    // Add logout button container
     const buttonContainer = document.createElement('div');
     buttonContainer.style.display = 'flex';
     buttonContainer.style.justifyContent = 'center';
-    buttonContainer.style.gap = '2rem';
     buttonContainer.style.marginTop = '2rem';
-    
-    // Complete profile button
-    const completeProfileBtn = document.createElement('button');
-    completeProfileBtn.className = 'animated-button type--C';
-    completeProfileBtn.innerHTML = `
-        <div class="button__line"></div>
-        <div class="button__line"></div>
-        <span class="button__text">COMPLETE PROFILE</span>
-        <div class="button__drow1"></div>
-        <div class="button__drow2"></div>
-    `;
-    buttonContainer.appendChild(completeProfileBtn);
     
     // Logout button
     const logoutBtn = document.createElement('button');
@@ -165,11 +157,6 @@ function createWelcomeScreen(user) {
     
     // Add event listener to logout button
     document.getElementById('welcome-logout').addEventListener('click', handleLogout);
-    
-    // Add event listener to complete profile button
-    completeProfileBtn.addEventListener('click', () => {
-        alert('Profile completion feature coming soon!');
-    });
 }
 
 // Function to handle Google Sign-In
