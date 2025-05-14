@@ -1,7 +1,6 @@
 # Solaiel Energy 🌞
 
-![License](https://img.shields.io/badge/license-MIT%20with%20Restrictions-blue.svg)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/license-Proprietary-blue.svg)
 ![Solution Challenge](https://img.shields.io/badge/Google%20Solution%20Challenge-2025-green)
 
 <p align="center">
@@ -112,9 +111,7 @@ Solaiel Energy leverages the following technologies:
 ---
 
 ## 📜 License
-Solaiel Energy is licensed under the **MIT License with Restrictions**. This permits limited personal, non-commercial use, with strict restrictions to protect the project’s intellectual property. **No one may copy, distribute, or use the code commercially without explicit written permission from the project owner.**
-
-See the [LICENSE](LICENSE) file for details.
+Solaiel Energy is proprietary software with all rights reserved. No individual, organization, or entity may use, copy, modify, distribute, or create derivative works of the software, in any form, for any purpose, without explicit written permission from the Solaiel Energy Team.
 
 ---
 
