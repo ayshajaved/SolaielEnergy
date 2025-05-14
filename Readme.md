@@ -8,16 +8,17 @@
   <img src="logo.png" alt="Solaiel Energy Logo" width="250"/>
 </p>
 
-**Solaiel Energy** is Pakistan’s first AI-powered platform transforming solar energy adoption. By leveraging advanced technologies like **Google’s Gemini 1.5 Flash**, **Google Cloud**(AutoML), and **Google Maps API**, we provide intelligent solar planning, personalized consultations, and connections to verified local installers. Our mission is to drive **sustainability**, address Pakistan’s energy crisis, and support the government’s goal of **20% renewable energy by 2025**.
+**Solaiel Energy** is Pakistan’s first AI-powered platform transforming solar energy adoption. By leveraging advanced technologies like **Google’s Gemini 1.5 Flash**, **Google Cloud(AutoML)**,**Firebase** ,and **Google Maps API**, we provide intelligent solar planning, personalized consultations, and connections to verified local installers. Our mission is to drive **sustainability**, address Pakistan’s energy crisis, and support the government’s goal of **20% renewable energy by 2025**.
 
 ---
 
 ## ⚡ Problem Statement: Pakistan’s Electricity Crisis
 
-Pakistan grapples with a severe energy crisis, facing a **5,000–8,000 MW electricity shortfall**, resulting in **12–18 hours of daily load-shedding** in rural areas and disrupting industries. Over **64 million Pakistanis** lack reliable electricity access, and heavy reliance on fossil fuels (61% of energy production in 2022) contributes to high costs and environmental damage, with **679.34 million tons of CO2 emissions** in 2022. Electricity tariffs have risen by **155% since 2021**, making grid power unaffordable for many households.
+Pakistan is engulfed in a severe electricity crisis, with a 5,000–8,000 MW shortfall plunging millions into darkness, especially in rural areas where 12–18 hours of daily load-shedding disrupts livelihoods, education, and healthcare. Over 64 million people lack reliable electricity access, while skyrocketing tariffs—up 155% since 2021—make grid power unaffordable for many. The nation’s heavy reliance on fossil fuels, accounting for 61% of energy production in 2022, fuels 679.34 million tons of CO2 emissions annually, accelerating climate change and environmental degradation.
 
-Despite Pakistan’s **vast solar potential** due to its location in the Sunny Belt (average **16 MJ/m² daily global radiation**), only **3% of energy comes from renewables**. Barriers such as high upfront costs, limited awareness, and lack of access to financing hinder solar adoption. Solaiel Energy tackles these challenges with **AI-driven, cost-effective solar solutions**, reducing adoption barriers by **60%** and aligning with government initiatives for clean energy.
+Yet, Pakistan sits in the Sunny Belt, boasting a solar potential of 100,000 MW with an average of 16 MJ/m² daily global radiation, harnessing only 3% from renewables. Solar energy offers a beacon of hope: it’s abundant, sustainable, and can deliver reliable, decentralized power to underserved regions, slashing fossil fuel dependence and emissions. With solar costs plummeting and government support like net metering and 80% subsidies for residential solar, adoption is within reach. However, barriers like high upfront costs, limited awareness, and financing gaps persist.
 
+Solaiel Energy rises to the challenge with an AI-powered platform that transforms solar adoption. Our AI Chatbot, powered by Google’s Gemini 1.5 Flash, offers 24/7 personalized consultations, breaking awareness barriers. The AI Solar Planner optimizes system designs, cutting costs by 25% and maximizing efficiency, while Find Installers, leveraging Google Maps API, connects users to verified professionals, reducing adoption barriers by 60%. By empowering Pakistan to harness its solar potential, Solaiel Energy supports the nation’s 20% renewable energy target by 2025, driving economic growth, environmental sustainability, and community empowerment.
 ---
 
 ## 🎯 Solution Challenge Themes
