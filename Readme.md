@@ -14,11 +14,25 @@
 
 ## ⚡ Problem Statement: Pakistan’s Electricity Crisis
 
-Pakistan is engulfed in a severe electricity crisis, with a 5,000–8,000 MW shortfall plunging millions into darkness, especially in rural areas where 12–18 hours of daily load-shedding disrupts livelihoods, education, and healthcare. Over 64 million people lack reliable electricity access, while skyrocketing tariffs—up 155% since 2021—make grid power unaffordable for many. The nation’s heavy reliance on fossil fuels, accounting for 61% of energy production in 2022, fuels 679.34 million tons of CO2 emissions annually, accelerating climate change and environmental degradation.
+Pakistan is engulfed in a **severe electricity crisis**, with a **5,000–8,000 MW shortfall** plunging millions into darkness, particularly in rural areas where **12–18 hours of daily load-shedding** disrupts livelihoods, education, and healthcare. Over **64 million people** lack reliable electricity access, while skyrocketing tariffs—up **155% since 2021**—make grid power unaffordable for many. The nation’s heavy reliance on fossil fuels, accounting for **61% of energy production in 2022**, fuels **679.34 million tons of CO2 emissions** annually, accelerating climate change and environmental degradation.
 
-Yet, Pakistan sits in the Sunny Belt, boasting a solar potential of 100,000 MW with an average of 16 MJ/m² daily global radiation, harnessing only 3% from renewables. Solar energy offers a beacon of hope: it’s abundant, sustainable, and can deliver reliable, decentralized power to underserved regions, slashing fossil fuel dependence and emissions. With solar costs plummeting and government support like net metering and 80% subsidies for residential solar, adoption is within reach. However, barriers like high upfront costs, limited awareness, and financing gaps persist.
+Yet, Pakistan sits in the **Sunny Belt**, boasting a solar potential of **100,000 MW** with an average of **16 MJ/m² daily global radiation**, yet harnessing only **3% from renewables**. **Solar energy** offers a beacon of hope:
+- **Abundant and Sustainable**: Delivers clean, renewable power to reduce fossil fuel dependence.
+- **Reliable and Decentralized**: Provides consistent electricity to underserved regions, mitigating load-shedding.
+- **Cost-Effective**: Plummeting solar costs, coupled with government support like **net metering** and **80% subsidies for residential solar**, make adoption viable.
 
-Solaiel Energy rises to the challenge with an AI-powered platform that transforms solar adoption. Our AI Chatbot, powered by Google’s Gemini 1.5 Flash, offers 24/7 personalized consultations, breaking awareness barriers. The AI Solar Planner optimizes system designs, cutting costs by 25% and maximizing efficiency, while Find Installers, leveraging Google Maps API, connects users to verified professionals, reducing adoption barriers by 60%. By empowering Pakistan to harness its solar potential, Solaiel Energy supports the nation’s 20% renewable energy target by 2025, driving economic growth, environmental sustainability, and community empowerment.
+However, barriers persist:
+- **High Upfront Costs**: Deter households from investing in solar systems.
+- **Limited Awareness**: Lack of knowledge about solar benefits and financing options.
+- **Financing Gaps**: Insufficient access to affordable loans or payment plans.
+
+**Solaiel Energy** rises to the challenge with an **AI-powered platform** that transforms solar adoption:
+- **AI Chatbot**, powered by **Google’s Gemini 1.5 Flash**, offers **24/7 personalized consultations**, breaking awareness barriers.
+- **AI Solar Planner** optimizes system designs, cutting costs by **25%** and maximizing efficiency.
+- **Find Installers**, leveraging **Google Maps API**, connects users to verified professionals, reducing adoption barriers by **60%**.
+
+By empowering Pakistan to harness its solar potential, Solaiel Energy supports the nation’s **20% renewable energy target by 2025**, driving **economic growth**, **environmental sustainability**, and **community empowerment**.
+
 ---
 
 ## 🎯 Solution Challenge Themes
