@@ -173,13 +173,46 @@ export function generateSolarPlan(user, formData) {
         systemTitle.style.paddingBottom = '0.5rem';
         systemTitle.style.textAlign = 'center';
         
+        // After calculating inverterSizeWatts, add this new code
+        let solarPanelWatts;
+        let numberOfPanels;
+        
+        // Determine solar panel size based on daily consumption
+        if (parseFloat(energyConsumption) <= 1) {
+        // For consumption up to 1kWh
+        solarPanelWatts = 150;
+        } else if (parseFloat(energyConsumption) <= 5) {
+        // For consumption between 1-5kWh
+        if (budget === 'low') {
+        solarPanelWatts = 250; // Economy option
+        } else {
+        // Premium options based on consumption
+        if (parseFloat(energyConsumption) <= 2) {
+        solarPanelWatts = 300;
+        } else if (parseFloat(energyConsumption) <= 3.5) {
+        solarPanelWatts = 325;
+        } else {
+        solarPanelWatts = 400;
+        }
+        }
+        } else {
+        // For consumption above 5kWh
+        solarPanelWatts = 700;
+        }
+        
+        // Calculate number of panels needed
+        numberOfPanels = Math.ceil(inverterSizeWatts / solarPanelWatts);
+        
+        // Update the systemDetails HTML to include panel information
         const systemDetails = document.createElement('div');
         systemDetails.innerHTML = `
-            <p style="color: white; margin: 0.5rem 0;"><strong>Daily Consumption:</strong> ${energyConsumption} kWh</p>
-            <p style="color: white; margin: 0.5rem 0;"><strong>Inverter Size:</strong> ${(inverterSizeWatts/1000).toFixed(1)} kW</p>
-            <p style="color: white; margin: 0.5rem 0;"><strong>Battery System:</strong> ${batteryVoltage}V, ${marketBatteryAh}Ah x ${numberOfBatteries}</p>
-            <p style="color: white; margin: 0.5rem 0;"><strong>Backup Time:</strong> ${backupHours} hours</p>
-            <p style="color: white; margin: 0.5rem 0;"><strong>Roof Area Used:</strong> ${roofSize} m²</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Daily Consumption:</strong> ${energyConsumption} kWh</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Inverter Size:</strong> ${(inverterSizeWatts/1000).toFixed(1)} kW</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Solar Panels:</strong> ${numberOfPanels}x ${solarPanelWatts}W</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Total Solar Capacity:</strong> ${((numberOfPanels * solarPanelWatts)/1000).toFixed(1)} kW</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Battery System:</strong> ${batteryVoltage}V, ${marketBatteryAh}Ah x ${numberOfBatteries}</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Backup Time:</strong> ${backupHours} hours</p>
+        <p style="color: white; margin: 0.5rem 0;"><strong>Roof Area Used:</strong> ${roofSize} m²</p>
         `;
         
         systemCard.appendChild(systemTitle);
