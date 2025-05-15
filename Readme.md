@@ -7,7 +7,7 @@
   <img src="logo.png" alt="Solaiel Energy Logo" width="250"/>
 </p>
 
-**Solaiel Energy** is Pakistan’s first AI-powered platform transforming solar energy adoption. By leveraging advanced technologies like **Google’s Gemini 1.5 Flash**, **Google Cloud(AutoML)**,**Firebase** ,and **Google Maps API**, we provide intelligent solar planning, personalized consultations, and connections to verified local installers. Our mission is to drive **sustainability**, address Pakistan’s energy crisis, and support the government’s goal of **20% renewable energy by 2025**.
+**Solaiel Energy** is Pakistan’s first AI-powered platform transforming solar energy adoption. By leveraging advanced technologies like **Google’s Gemini 1.5 Flash**, **Google Cloud**,**Firebase** ,and **Google Maps API**, we provide intelligent solar planning, personalized consultations, and connections to verified local installers. Our mission is to drive **sustainability**, address Pakistan’s energy crisis, and support the government’s goal of **20% renewable energy by 2025**.
 
 ---
 
@@ -68,7 +68,7 @@ Solaiel Energy is Pakistan’s premier AI-powered solar platform, making clean e
    - Guides users through solar adoption with an intuitive interface.
 
 2. **AI Solar Planner** ⚡
-   - Uses **AI algorithms** to design custom solar systems based on energy requirements.
+   - Uses inputs to design custom solar systems based on energy requirements.
    - Predicts **solar panel wattage**, **battery sizing**, and **system parameters**.
    - Outputs include **real-time ROI**, **energy savings**, **CO2 reduction**, and **panel layout optimization**.
    - Users can **download a detailed solar plan** for future reference.
@@ -106,7 +106,6 @@ Solaiel Energy leverages the following technologies:
 - Google Maps API
 - Gemini 1.5 Flash API
 - Firebase
-- AutoML
 
 ---
 
