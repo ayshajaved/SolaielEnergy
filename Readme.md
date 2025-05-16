@@ -146,7 +146,6 @@ Solaiel Energy’s zero-cost MVP is just the spark! As a solo developer, I envis
   - **What**: Scale Solaiel Energy to other Sunny Belt countries, integrating with global solar trade networks.
   - **Impact**: Impact 100M+ lives by 2035, leading the world in AI-driven renewable energy solutions.
 
-**Aspirations to Impress Judges**:  
 Solaiel Energy isn’t just a project—it’s a movement! As a solo developer, I’ve crafted a zero-cost MVP using free credits, showcasing unparalleled resourcefulness and innovation. My vision is to make Solaiel Energy the cornerstone of Pakistan’s renewable future, achieving **50% renewable energy by 2030**, reducing CO2 emissions by 10M tons annually, and creating 50,000 green jobs through solar trade. By 2035, I aim to take Solaiel global, empowering 100M+ lives across the Sunny Belt, making clean energy a universal right, and supporting global sustainability goals (SDG 7, 13, 8). Let’s light up Pakistan—and the world—together!
 
 ---
