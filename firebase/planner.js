@@ -459,5 +459,3 @@ export function generateSolarPlan(user, formData) {
         });
     }, 2000); // End of setTimeout for loading simulation
 } // End of generateSolarPlan function
-
-// Update the PDF generation function to include daily consumption

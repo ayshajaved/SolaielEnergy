@@ -1,5 +1,5 @@
 // Firebase authentication implementation
-import { firebaseConfig } from "./config.js"; // Make sure to add .js extension
+import { firebaseConfig } from "./config.js"; 
 import { showSolarProfileForm } from "./form.js";
 
 // Initialize Firebase using the compat version

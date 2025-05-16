@@ -1,4 +1,4 @@
-#Backend Code for SOlar Chatbot using Mistral AI API
+#Backend Code for SOlar Chatbot
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
